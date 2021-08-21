@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="{% static 'looking_back/css/bootstrap.min.css' %}">
+{% block extra_css %}{% endblock %}
+<title>{% block title %}career passport{% endblock %}</title>
+</head>
+<body>
+  <div class="container">
+    {% block content %}
+      {{ content }}
+    {% endblock %}
+  </div>
+<script src="{% static 'looking_back/js/jquery-3.6.0.min.js' %}"></script>
+<script src="{% static 'looking_back/js/bootstrap.bundle.min.js' %}"></script>
+{% block extra_js %}{% endblock %}
+</body>
+</html>
