@@ -1,0 +1,12 @@
+{% extends 'looking_back/base.html' %}
+{% block content %}
+<h2>confirm</h2>
+{% for item in career_passport_lists %}
+    {{item}}<br>
+{% endfor %}
+<form method="POST">
+    {% csrf_token %}
+    <button type="submit" name="button_confirm">確定</button>
+    <button type="submit" name="button_confirm_back">戻る</button>
+</form>
+{% endblock content %}

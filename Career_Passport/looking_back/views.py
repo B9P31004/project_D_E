@@ -4,8 +4,9 @@ from django.urls import reverse_lazy
 from .forms import TextForm,career_passport01_1_inputForm
 from django.http import HttpResponseRedirect
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .mixins import GroupMixin
+from Career_Passport.mixins import StudentMixin
 from .models import career_passport01_1
+from grade_management.models import grades
 
 #from datetime import datetime
 #from pytz import timezone
@@ -13,10 +14,10 @@ from .models import career_passport01_1
 # Create your views here.
 
 class IndexView(LoginRequiredMixin,generic.TemplateView):
-    template_name='index.html'
+    template_name='looking_back/index.html'
 
 class analizeView(generic.FormView):
-    template_name='analize.html'
+    template_name='looking_back/analize.html'
     form_class=TextForm
     success_url=reverse_lazy('looking_back:analyze')
     def post(self,request,*args,**kwargs):
@@ -24,9 +25,9 @@ class analizeView(generic.FormView):
         return render(request,self.template_name,{'text':text})
     #return text
 
-class career_passport01_1_input(LoginRequiredMixin,GroupMixin,generic.FormView):
+class career_passport01_1_input(LoginRequiredMixin,StudentMixin,generic.FormView):
     model=career_passport01_1
-    template_name="career_passport_input.html"
+    template_name="looking_back/career_passport_input.html"
     form_class=career_passport01_1_inputForm
     success_url=reverse_lazy('looking_back:career_passport01_1_confirm')
     def get_success_url(self):
@@ -64,7 +65,7 @@ class career_passport01_1_input(LoginRequiredMixin,GroupMixin,generic.FormView):
                 ]
             }
             request.session['form_data']=request.POST
-            return render(request,'career_passport_confirm.html',context)
+            return render(request,'looking_back/career_passport_confirm.html',context)
         elif 'button_confirm' in request.POST:
             if career_passport01_1.objects.filter(UniqueID=self.request.user).exists():
                 print('error')
@@ -82,7 +83,7 @@ class career_passport01_1_input(LoginRequiredMixin,GroupMixin,generic.FormView):
             context={
                 'form':form,
             }
-            return render(request,'career_passport_input.html',context)
+            return render(request,'looking_back/career_passport_input.html',context)
 
 
 #class career_passport01_1_confirm(generic.FormView):
@@ -93,9 +94,9 @@ class career_passport01_1_input(LoginRequiredMixin,GroupMixin,generic.FormView):
 #        }
 #        return render(request,self.template_name,context)
 
-class career_passport01_1_detail(LoginRequiredMixin,GroupMixin,generic.DetailView):
+class career_passport01_1_detail(LoginRequiredMixin,StudentMixin,generic.DetailView):
     model=career_passport01_1
-    template_name='detail.html'
+    template_name='looking_back/detail.html'
     #slug_field='UniqueID'
     #slug_url_kwarg='UniqueID'
     #pk_url_kwarg='UniqueID'
@@ -107,3 +108,8 @@ class career_passport01_1_detail(LoginRequiredMixin,GroupMixin,generic.DetailVie
     #    return queryset
     def get_object(self,queryset=None):
         return career_passport01_1.objects.get(UniqueID=self.request.user.id)
+
+    model=grades
+    def get_object(self,queryset=None):
+        if career_passport01_1.objects.filter(UniqueID=self.request.user).exists():
+            return grades.objects.get(UniqueID=self.request.user.id)

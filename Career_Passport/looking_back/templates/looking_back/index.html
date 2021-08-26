@@ -1,0 +1,13 @@
+{% extends 'looking_back/base.html' %}
+{% block content %}
+<h2>index</h2>
+<a href="{% url 'logout' %}">ログアウト</a>
+<br>
+<a href="{% url 'looking_back:analize' %}">analize</a>
+<br>
+<a href="{% url 'looking_back:career_passport01_1_input' pk=user.pk %}">CP_01_1_input</a>
+<br>
+<a href="{% url 'looking_back:career_passport01_1_detail' pk=user.pk %}">CP_01_1_detail</a>
+<br>
+<a href="{% url 'grade_management:grade_input' pk=user.pk %}">G_input</a>
+{% endblock content %}

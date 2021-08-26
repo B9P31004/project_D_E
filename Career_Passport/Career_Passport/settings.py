@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'looking_back.apps.LookingBackConfig',
+    'grade_management.apps.GradeManagementConfig',
 ]
 
 MIDDLEWARE = [
