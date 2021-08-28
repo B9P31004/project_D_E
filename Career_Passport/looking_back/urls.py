@@ -23,4 +23,5 @@ urlpatterns = [
     path('analize/',views.analizeView.as_view(),name="analize"),
     path('career_passport01_1_input/<int:pk>',views.career_passport01_1_input.as_view(),name="career_passport01_1_input"),
     path('career_passport01_1_detail/<int:pk>',views.career_passport01_1_detail.as_view(),name="career_passport01_1_detail"),
+    path('career_passport01_1_edit/<int:pk>',views.career_passport01_1_edit.as_view(),name="career_passport01_1_edit"),
 ]

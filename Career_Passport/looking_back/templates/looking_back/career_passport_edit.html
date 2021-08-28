@@ -1,0 +1,9 @@
+{% extends 'looking_back/base.html' %}
+{% block content %}
+<h2>edit</h2>
+<form method="POST">
+    {% csrf_token %}
+    {{form}}
+    <button type="submit" name="button_edit">送信</button>
+</form>
+{% endblock content %}
