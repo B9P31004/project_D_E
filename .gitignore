@@ -10,3 +10,4 @@
 pyvenv.cfg
 /Career_Passport/Career_Passport/.env
 __pycache__/
+migrations/
