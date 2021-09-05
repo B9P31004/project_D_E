@@ -3,7 +3,7 @@
 /Scripts/activate.ps1
 /Scripts/deactivate.bat
 /Scripts/pip.exe
-/Scripts/pip3.8exe
+/Scripts/pip3.8.exe
 /Scripts/pip3.exe
 /Scripts/python.exe
 /Scripts/pythonw.exe
