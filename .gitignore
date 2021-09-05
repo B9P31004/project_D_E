@@ -9,4 +9,4 @@
 /Scripts/pythonw.exe
 pyvenv.cfg
 /Career_Passport/Career_Passport/.env
-__pyache__/
+__pycache__/
