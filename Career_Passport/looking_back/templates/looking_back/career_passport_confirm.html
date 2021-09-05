@@ -1,9 +1,11 @@
 {% extends 'looking_back/base.html' %}
 {% block content %}
+{% load boost %}
 <h2>confirm</h2>
-{% for item in career_passport_lists %}
-    {{item}}<br>
+{% for item,item_f in career_passport_lists|zip:form %}
+    {{item_f.label}} : {{item}}<br>
 {% endfor %}
+
 <form method="POST">
     {% csrf_token %}
     <button type="submit" name="button_confirm">確定</button>

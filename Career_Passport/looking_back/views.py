@@ -8,6 +8,7 @@ from Career_Passport.mixins import StudentMixin
 from itertools import chain
 from .models import career_passport01_1
 from grade_management.models import grades
+#import json
 
 #from datetime import datetime
 #from pytz import timezone
@@ -16,6 +17,19 @@ from grade_management.models import grades
 
 class IndexView(LoginRequiredMixin,generic.TemplateView):
     template_name='looking_back/index.html'
+    
+    def get(self, request, **kwargs):
+        career_passport01_1_input=1
+        career_passport01_1_detail_edit=0
+        if career_passport01_1.objects.filter(UniqueID=self.request.user).exists():
+            career_passport01_1_input=0
+            career_passport01_1_detail_edit=1
+        context={
+            'career_passport01_1_input':career_passport01_1_input,
+            'career_passport01_1_detail_edit':career_passport01_1_detail_edit,
+        }
+        return render(request,'looking_back/index.html',context)
+    
 
 class analizeView(generic.FormView):
     template_name='looking_back/analize.html'
@@ -130,10 +144,92 @@ class career_passport01_1_detail(LoginRequiredMixin,StudentMixin,generic.DetailV
         #career_passport01_1.objects.get(UniqueID=self.request.user.id)"""
 
     #model=grades
-    def get_object(self,queryset=None):
+    """def get_object(self,queryset=None):
         #if grades.objects.filter(UniqueID=self.request.user).exists():
             #return grades.objects.get(UniqueID=self.request.user.id)
-        return career_passport01_1.objects.get(UniqueID=self.request.user.id)
+        return career_passport01_1.objects.get(UniqueID=self.request.user.id)"""
+    
+    def get(self, request, **kwargs):
+        option01_1_m=''
+        option01_1_e=''
+        option01_2_m=''
+        option01_2_e=''
+        option01_3_m=''
+        option01_3_e=''
+        option02_1_m=''
+        option02_1_e=''
+        option02_2_m=''
+        option02_2_e=''
+        option02_3_m=''
+        option02_3_e=''
+        option03_1_m=''
+        option03_1_e=''
+        option03_2_m=''
+        option03_2_e=''
+        option03_3_m=''
+        option03_3_e=''
+        if grades.objects.filter(UniqueID=self.request.user.id,school_year=1,semester=1,regular_test="中間").exists():
+            option01_1_m='<option value="10101">1年一学期中間</option>'
+        if grades.objects.filter(UniqueID=self.request.user.id,school_year=1,semester=1,regular_test="期末").exists():
+            option01_1_e='<option value="10102">1年一学期期末</option>'
+        if grades.objects.filter(UniqueID=self.request.user.id,school_year=1,semester=2,regular_test="中間").exists():
+            option01_2_m='<option value="10201">1年二学期中間</option>'
+        if grades.objects.filter(UniqueID=self.request.user.id,school_year=1,semester=2,regular_test="期末").exists():
+            option01_2_e='<option value="10202">1年二学期期末</option>'
+        if grades.objects.filter(UniqueID=self.request.user.id,school_year=1,semester=3,regular_test="中間").exists():
+            option01_3_m='<option value="10301">1年三学期中間</option>'
+        if grades.objects.filter(UniqueID=self.request.user.id,school_year=1,semester=3,regular_test="期末").exists():
+            option01_3_e='<option value="10302">1年三学期期末</option>'
+        if grades.objects.filter(UniqueID=self.request.user.id,school_year=2,semester=1,regular_test="中間").exists():
+            option02_1_m='<option value="20101">2年一学期中間</option>'
+        if grades.objects.filter(UniqueID=self.request.user.id,school_year=2,semester=1,regular_test="期末").exists():
+            option02_1_e='<option value="20102">2年一学期期末</option>'
+        if grades.objects.filter(UniqueID=self.request.user.id,school_year=2,semester=2,regular_test="中間").exists():
+            option02_2_m='<option value="20201">2年二学期中間</option>'
+        if grades.objects.filter(UniqueID=self.request.user.id,school_year=2,semester=2,regular_test="期末").exists():
+            option02_2_e='<option value="20202">2年二学期期末</option>'
+        if grades.objects.filter(UniqueID=self.request.user.id,school_year=2,semester=3,regular_test="中間").exists():
+            option02_3_m='<option value="20301">2年三学期中間</option>'
+        if grades.objects.filter(UniqueID=self.request.user.id,school_year=2,semester=3,regular_test="期末").exists():
+            option02_3_e='<option value="20302">2年三学期期末</option>'
+        if grades.objects.filter(UniqueID=self.request.user.id,school_year=3,semester=1,regular_test="中間").exists():
+            option03_1_m='<option value="30101">3年一学期中間</option>'
+        if grades.objects.filter(UniqueID=self.request.user.id,school_year=3,semester=1,regular_test="期末").exists():
+            option03_1_e='<option value="30101">3年一学期期末</option>'
+        if grades.objects.filter(UniqueID=self.request.user.id,school_year=3,semester=2,regular_test="中間").exists():
+            option03_2_m='<option value="30201">3年二学期中間</option>'
+        if grades.objects.filter(UniqueID=self.request.user.id,school_year=3,semester=2,regular_test="期末").exists():
+            option03_2_e='<option value="30202">3年二学期期末</option>'
+        if grades.objects.filter(UniqueID=self.request.user.id,school_year=3,semester=3,regular_test="中間").exists():
+            option03_3_m='<option value="30301">3年三学期中間</option>'
+        if grades.objects.filter(UniqueID=self.request.user.id,school_year=3,semester=3,regular_test="期末").exists():
+            option03_3_e='<option value="30302">3年三学期期末</option>'
+        context={
+            'option_list':[
+                option01_1_m,
+                option01_1_e,
+                option01_2_m,
+                option01_2_e,
+                option01_3_m,
+                option01_3_e,
+                option02_1_m,
+                option02_1_e,
+                option02_2_m,
+                option02_2_e,
+                option02_3_m,
+                option02_3_e,
+                option03_1_m,
+                option03_1_e,
+                option03_2_m,
+                option03_2_e,
+                option03_3_m,
+                option03_3_e,
+            ],
+            'object':career_passport01_1.objects.get(UniqueID=self.request.user.id),
+            'form':career_passport01_1_Form,
+        }
+        print(career_passport01_1_Form)
+        return render(request,'looking_back/career_passport_detail.html',context)
 
 class career_passport01_1_edit(generic.UpdateView):
     template_name='looking_back/career_passport_edit.html'
@@ -154,7 +250,7 @@ class career_passport01_1_edit(generic.UpdateView):
     
     def post(self,request,*args,**kwargs):
         if 'button_edit' in request.POST:
-            #print (request.POST)
+            print (request.POST)
             context={
                 'career_passport_lists':[
                     request.POST.get('my_current'),
@@ -169,7 +265,8 @@ class career_passport01_1_edit(generic.UpdateView):
                     request.POST.get('for_local_target'),
                     request.POST.get('others_target'),
                     request.POST.get('for_others_target')
-                ]
+                ],
+                'form':career_passport01_1_Form,
             }
             request.session['form_data']=request.POST
             return render(request,'looking_back/career_passport_confirm.html',context)

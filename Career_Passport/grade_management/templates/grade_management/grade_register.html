@@ -4,7 +4,7 @@
 <form method="POST">
     {% csrf_token %}
     {{form}}
-    <button type="submit">送信</button>
+    <button type="submit" name="button_input">送信</button>
     {{text}}
 </form>
 {% endblock content %}

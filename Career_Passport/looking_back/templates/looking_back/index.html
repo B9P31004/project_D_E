@@ -5,11 +5,16 @@
 <br>
 <a href="{% url 'looking_back:analize' %}">analize</a>
 <br>
+{% if career_passport01_1_input == 1 %}
 <a href="{% url 'looking_back:career_passport01_1_input' pk=user.pk %}">CP_01_1_input</a>
 <br>
+{% endif %}
+{% if career_passport01_1_detail_edit == 1 %}
 <a href="{% url 'looking_back:career_passport01_1_detail' pk=user.pk %}">CP_01_1_detail</a>
 <br>
 <a href="{% url 'looking_back:career_passport01_1_edit' pk=user.pk %}">CP_01_1_edit</a>
 <br>
+{% endif %}
 <a href="{% url 'grade_management:grade_input' pk=user.pk %}">G_input</a>
+<br>
 {% endblock content %}

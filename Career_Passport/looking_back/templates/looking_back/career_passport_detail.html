@@ -2,83 +2,39 @@
 {% load static %}
 {% block extra_css %}
 <script src="{% static 'looking_back/js/chart.min.js' %}"></script>
+<script src="{% static 'looking_back/js/ajax.js' %}"></script>
+<script src="{% static 'looking_back/js/graph.js' %}"></script>
 {% endblock %}
 
 {% block content %}
 <h2>detail</h2>
 {% if "career_passport01_1" in request.path%}
     {{object.date}}<br>
-    {{object.my_current}}<br>
-    {{object.my_PR}}<br>
-    {{object.my_dream}}<br>
-    {{object.getting_skills}}<br>
-    {{object.study_target}}<br>
-    {{object.for_study_target}}<br>
-    {{object.life_target}}<br>
-    {{object.for_life_target}}<br>
-    {{object.local_target}}<br>
-    {{object.for_local_target}}<br>
-    {{object.others_target}}<br>
-    {{object.for_others_target}}<br>
+    {{form.my_current.label}} : {{object.my_current}}<br>
+    {{form.my_PR.label}} : {{object.my_PR}}<br>
+    {{form.my_dream.label}} : {{object.my_dream}}<br>
+    {{form.getting_skills.label}} : {{object.getting_skills}}<br>
+    {{form.study_target.label}} : {{object.study_target}}<br>
+    {{form.for_study_target.label}} : {{object.for_study_target}}<br>
+    {{form.life_target.label}} : {{object.life_target}}<br>
+    {{form.for_life_target.label}} : {{object.for_life_target}}<br>
+    {{form.local_target.label}} : {{object.local_target}}<br>
+    {{form.for_local_target.label}} : {{object.for_local_target}}<br>
+    {{form.others_target.label}} : {{object.others_target}}<br>
+    {{form.for_others_target.label}} : {{object.for_others_target}}<br>
 {% endif %}
     <div style="width:400px">
         <canvas id="gradechart"></canvas>
     </div>
-    <input type="hidden" id="national_language" value="{{object.national_language}}">
-    <input type="hidden" id="math" value="{{object.math}}">
-    <input type="hidden" id="english" value="{{object.english}}">
-    <input type="hidden" id="social_studies" value="{{object.social_studies}}">
-    <input type="hidden" id="science" value="{{object.science}}">
-    <input type="hidden" id="music" value="{{object.music}}">
-    <input type="hidden" id="art" value="{{object.art}}">
-    <input type="hidden" id="technical_arts_and_home_economics" value="{{object.technical_arts_and_home_economics}}">
-    <input type="hidden" id="health_and_physical_education" value="{{object.health_and_physical_education}}">
-    {{object.math}}
-    <script>
-        var grade=[];
-        grade[0]=document.getElementById('national_language').value;
-        grade[1]=document.getElementById('math').value;
-        grade[2]=document.getElementById('english').value;
-        grade[3]=document.getElementById('social_studies').value;
-        grade[4]=document.getElementById('science').value;
-        grade[5]=document.getElementById('music').value;
-        grade[6]=document.getElementById('art').value;
-        grade[7]=document.getElementById('technical_arts_and_home_economics').value;
-        grade[8]=document.getElementById('health_and_physical_education').value;
-        var ctx=document.getElementById('gradechart');
-        var gradeChart=new Chart(ctx,{
-            type:'radar',
-            data:{
-                labels:['国語','数学','英語','社会','理科','音楽','美術','技術・家庭科','保健体育'],
-                datasets:[{
-                    label:'成績',
-                    data:[grade[0],grade[1],grade[2],grade[3],grade[4],grade[5],grade[6],grade[7],grade[8]],
-                    borderColor:'blue',
-                    borderWidth:3,
-                }],
-            },
-            options:{
-                r:{
-                    min:0,
-                    max:100,
-                    backgroundColor:'lightblue',
-                    grid:{
-                        color:'darkblue',
-                    },
-                    angleLines:{
-                        color:'aqua',
-                    },
-                    pointLabels:{
-                        color:'darkblue',
-                        backdropColor:'lightgreen',
-                        backdropPadding:5,
-                        padding:20,
-                    },
-                },
-            },
-        });
-    </script>
+    <div id="grade_url" style="display: none;">
+        {% url 'grade_management:grade_output' pk=user.pk %}
+    </div>
+    <select id="grade_select">
+        {% for item in option_list %}
+            {{item |safe}}
+        {% endfor %}
+    </select>
+    <div id="error_text"></div>
 {% endblock content %}
-
 {% block extra_js %}
 {% endblock %}

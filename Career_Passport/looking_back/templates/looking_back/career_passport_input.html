@@ -3,7 +3,9 @@
 <h2>input</h2>
 <form method="POST">
     {% csrf_token %}
-    {{form}}
+    {% for item in form %}
+        {{item.label}}{{item}}
+    {% endfor %}
     <button type="submit" name="button_input">送信</button>
 </form>
 {% endblock content %}

@@ -20,4 +20,5 @@ app_name='grade_management'
 
 urlpatterns = [
     path('grade_input/<int:pk>',views.grade_input.as_view(),name="grade_input"),
+    path('grade_output/<int:pk>',views.grade_output.as_view(),name="grade_output"),
 ]

@@ -3,7 +3,9 @@
 <h2>edit</h2>
 <form method="POST">
     {% csrf_token %}
-    {{form}}
+    {% for item in form %}
+        {{item.label}}{{item}}
+    {% endfor %}
     <button type="submit" name="button_edit">送信</button>
 </form>
 {% endblock content %}
