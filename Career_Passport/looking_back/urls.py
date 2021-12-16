@@ -19,9 +19,15 @@ from . import views
 app_name='looking_back'
 
 urlpatterns = [
-    path('',views.IndexView.as_view(),name="index"),
-    path('analize/',views.analizeView.as_view(),name="analize"),
-    path('career_passport01_1_input/<int:pk>',views.career_passport01_1_input.as_view(),name="career_passport01_1_input"),
-    path('career_passport01_1_detail/<int:pk>',views.career_passport01_1_detail.as_view(),name="career_passport01_1_detail"),
-    path('career_passport01_1_edit/<int:pk>',views.career_passport01_1_edit.as_view(),name="career_passport01_1_edit"),
+    path('student_confirm',views.IndexView.as_view(),name="index"),
+    path('career_passport_edit_s/<int:pk>',views.career_passport_edit_s.as_view(),name="career_passport_edit_s"),
+    path('career_passport_edit_e/<int:pk>',views.career_passport_edit_e.as_view(),name="career_passport_edit_e"),
+    path('career_passport_detail/<int:pk>',views.career_passport_detail.as_view(),name="career_passport_detail"),
+    path('career_passport_output/<int:pk>',views.career_passport_output.as_view(),name="career_passport_output"),
+    path('occupational_aptitude/<int:pk>',views.occupational_aptitude.as_view(),name="occupational_aptitude"),
+    path('occupational_aptitude_result/<int:pk>',views.occupational_aptitude_result.as_view(),name="occupational_aptitude_result"),
+    path('occupational_aptitude_output/<int:pk>',views.occupational_aptitude_output.as_view(),name="occupational_aptitude_output"),
+    path('book/<int:pk>/<str:book>',views.book.as_view(),name="book"),
+    path('event/<int:pk>',views.EventView.as_view(),name="event"),
+    path('load/',views.load.as_view(),name="load"),
 ]

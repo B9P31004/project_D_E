@@ -1,9 +1,0 @@
-{% extends 'base.html' %}
-{% block content %}
-<h2>input</h2>
-<form method="POST">
-    {% csrf_token %}
-    {{form}}
-    <button type="submit" name="button_input">送信</button>
-</form>
-{% endblock content %}

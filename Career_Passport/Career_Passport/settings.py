@@ -28,12 +28,13 @@ SECRET_KEY = 'django-insecure-ald+#r%e3blnv7_d_jck)o0#u3jqbq7n4^cy!h@r-oy=zl5zgc
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*','192.168.0.21']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'django_cleanup.apps.CleanupConfig',
     'accounts.apps.AccountsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -45,6 +46,8 @@ INSTALLED_APPS = [
 
     'looking_back.apps.LookingBackConfig',
     'grade_management.apps.GradeManagementConfig',
+    'teacher_confirmation.apps.TeacherConfirmationConfig',
+    'file_uploader.apps.FileUploaderConfig',
 ]
 
 MIDDLEWARE = [
@@ -89,7 +92,7 @@ load_dotenv(dotenv_path)
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'career_passport',
+        'NAME': 'career_passport_3',
         'USER': os.environ.get('DB_USER'),
         'PASSWORD': os.environ.get('DB_PASSWORD'),
         'HOST': '',
@@ -133,6 +136,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS=(
+    os.path.join(BASE_DIR,"static"),
+)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
@@ -141,5 +147,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL='accounts.CustomUser'
 
-LOGIN_REDIRECT_URL='looking_back:index'
+LOGIN_REDIRECT_URL='accounts:index'
 ACCOUNT_LOGOUT_REDIRECT_URL='accounts:login'
+
+MEDIA_ROOT=os.path.join(BASE_DIR,'media')
+MEDIA_URL='/media/'

@@ -1,0 +1,564 @@
+.mediaViewInfo {
+	--web-view-name: pass;
+	--web-view-id: pass;
+	--web-scale-on-resize: true;
+	--web-enable-deep-linking: true;
+}
+:root {
+	--web-view-ids: pass;
+}
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	border: none;
+}
+#index {
+	position: absolute;
+	width: 1024px;
+	height: 1700px;
+	background-color: rgba(255,255,255,1);
+	overflow: hidden;
+	--web-view-name: pass;
+	--web-view-id: pass;
+	--web-scale-on-resize: true;
+	--web-enable-deep-linking: true;
+	z-index: 10;
+}
+#n_272 {
+	fill: rgba(245,245,245,1);
+}
+.n_272 {
+	position: absolute;
+	overflow: visible;
+	width: 1024px;
+	height: 2097px;
+	left: 0px;
+	top: 0px;
+	z-index: -1;
+}
+#n_273 {
+	fill: rgba(255,255,255,1);
+}
+.n_273 {
+	position: absolute;
+	overflow: visible;
+	width: 1024px;
+	height: 119px;
+	left: 0px;
+	top: 0px;
+}
+@keyframes fadein {
+
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+
+}
+#n_15 {
+	fill: rgba(214,214,214,1);
+}
+.n_15 {
+	position: absolute;
+	overflow: visible;
+	width: 90px;
+	height: 90px;
+	left: 904px;
+	top: 14px;
+}
+#n_36 {
+	position: absolute;
+	width: 871px;
+	height: 1769px;
+	left: 77px;
+	top: 230px;
+	overflow: visible;
+}
+#n_275 {
+	fill: rgba(255,255,255,1);
+}
+.n_275 {
+	position: absolute;
+	overflow: visible;
+	width: 871px;
+	height: 1769px;
+	left: 0px;
+	top: 0px;
+}
+#n_276 {
+	fill: rgba(44,195,242,1);
+}
+.n_276 {
+	position: absolute;
+	overflow: visible;
+	width: 871px;
+	height: 86px;
+	left: 0px;
+	top: 0px;
+}
+#n_6__1 {
+	position: absolute;
+	width: 124px;
+	height: 40px;
+	left: 88px;
+	top: 278px;
+	overflow: visible;
+}
+#n_5__1 {
+	position: absolute;
+	width: 124px;
+	height: 40px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#n_291 {
+	fill: rgba(255,255,255,1);
+}
+.n_291 {
+	position: absolute;
+	overflow: visible;
+	width: 124px;
+	height: 40px;
+	left: 0px;
+	top: 0px;
+}
+#n_ {
+	left: 16px;
+	top: 11px;
+	position: absolute;
+	overflow: visible;
+	width: 93px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Noto Sans JP;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 20px;
+	color: rgba(112,112,112,1);
+}
+#n_7__1 {
+	position: absolute;
+	width: 124px;
+	height: 40px;
+	left: 232px;
+	top: 275px;
+	overflow: visible;
+	--web-animation: fadein 0.3s ease-out;
+	--web-action-type: page;
+	--web-action-target: iPad_Nexus_9___5.html;
+	cursor: pointer;
+}
+#n_112 {
+	position: absolute;
+	width: 124px;
+	height: 40px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#n_291_bx {
+	fill: rgba(255,255,255,1);
+}
+.n_291_bx {
+	position: absolute;
+	overflow: visible;
+	width: 124px;
+	height: 40px;
+	left: 0px;
+	top: 0px;
+}
+#n__by {
+	left: 6px;
+	top: 11px;
+	position: absolute;
+	overflow: visible;
+	width: 113px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Noto Sans JP;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 20px;
+	color: rgba(112,112,112,1);
+}
+#n_8__1 {
+	position: absolute;
+	width: 124px;
+	height: 40px;
+	left: 376px;
+	top: 275px;
+	overflow: visible;
+	--web-animation: fadein 0.3s ease-out;
+	--web-action-type: page;
+	--web-action-target: iPad_Nexus_9___6.html;
+	cursor: pointer;
+}
+#n_113 {
+	position: absolute;
+	width: 124px;
+	height: 40px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#n_291_b {
+	fill: rgba(255,255,255,1);
+}
+.n_291_b {
+	position: absolute;
+	overflow: visible;
+	width: 124px;
+	height: 40px;
+	left: 0px;
+	top: 0px;
+}
+#n__b {
+	left: 6px;
+	top: 11px;
+	position: absolute;
+	overflow: visible;
+	width: 113px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Noto Sans JP;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 20px;
+	color: rgba(112,112,112,1);
+}
+#n_9__1 {
+	position: absolute;
+	width: 124px;
+	height: 40px;
+	left: 520px;
+	top: 275px;
+	overflow: visible;
+	--web-animation: fadein 0.3s ease-out;
+	--web-action-type: page;
+	--web-action-target: iPad_Nexus_9___7.html;
+	cursor: pointer;
+}
+#n_291_ca {
+	fill: rgba(255,255,255,1);
+}
+.n_291_ca {
+	position: absolute;
+	overflow: visible;
+	width: 124px;
+	height: 40px;
+	left: 0px;
+	top: 0px;
+}
+#n__ca {
+	left: 6px;
+	top: 11px;
+	position: absolute;
+	overflow: visible;
+	width: 113px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Noto Sans JP;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 20px;
+	color: rgba(112,112,112,1);
+}
+#n_10__1 {
+	position: absolute;
+	width: 124px;
+	height: 40px;
+	left: 664px;
+	top: 275px;
+	overflow: visible;
+	--web-animation: fadein 0.3s ease-out;
+	--web-action-type: page;
+	--web-action-target: iPad_Nexus_9___7.html;
+	cursor: pointer;
+}
+#n_291_cb {
+	fill: rgba(255,255,255,1);
+}
+.n_291_cb {
+	position: absolute;
+	overflow: visible;
+	width: 124px;
+	height: 40px;
+	left: 0px;
+	top: 0px;
+}
+#n__cb {
+	left: 6px;
+	top: 11px;
+	position: absolute;
+	overflow: visible;
+	width: 113px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Noto Sans JP;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 20px;
+	color: rgba(112,112,112,1);
+}
+#n_11__1 {
+	position: absolute;
+	width: 124px;
+	height: 40px;
+	left: 808px;
+	top: 275px;
+	overflow: visible;
+	--web-animation: fadein 0.3s ease-out;
+	--web-action-type: page;
+	--web-action-target: iPad_Nexus_9___8.html;
+	cursor: pointer;
+}
+#n_291_cc {
+	fill: rgba(255,255,255,1);
+}
+.n_291_cc {
+	position: absolute;
+	overflow: visible;
+	width: 124px;
+	height: 40px;
+	left: 0px;
+	top: 0px;
+}
+#n__cc {
+	left: 6px;
+	top: 11px;
+	position: absolute;
+	overflow: visible;
+	width: 113px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Noto Sans JP;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 20px;
+	color: rgba(112,112,112,1);
+}
+#n_54 {
+	position: absolute;
+	width: 807px;
+	height: 546px;
+	left: 93px;
+	top: 339px;
+	overflow: visible;
+}
+#n__cd {
+	left: 0px;
+	top: 0px;
+	position: absolute;
+	overflow: visible;
+	width: 519px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Noto Sans JP;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 25px;
+	color: rgba(112,112,112,1);
+}
+#n_60 {
+	position: absolute;
+	width: 226px;
+	height: 70px;
+	left: 400px;
+	top: 1877px;
+	overflow: visible;
+	cursor: pointer;
+}
+#n_1__1 {
+	position: absolute;
+	width: 163px;
+	height: 61px;
+	left: 497px;
+	top: 145px;
+	overflow: visible;
+}
+#n_32 {
+	position: absolute;
+	width: 163px;
+	height: 61px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#n_274_c {
+	fill: rgba(255,255,255,1);
+}
+.n_274_c {
+	filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.161));
+	position: absolute;
+	overflow: visible;
+	width: 223px;
+	height: 121px;
+	left: 0px;
+	top: 0px;
+}
+#n__c {
+	left: 46px;
+	top: 18px;
+	position: absolute;
+	overflow: visible;
+	width: 73px;
+	white-space: nowrap;
+	line-height: 50px;
+	margin-top: -12.5px;
+	text-align: center;
+	font-family: Noto Sans JP;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 25px;
+	color: rgba(112,112,112,1);
+}
+#n_283 {
+	opacity: 0;
+	fill: rgba(107,105,105,1);
+}
+.n_283 {
+	filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.161));
+	position: absolute;
+	overflow: visible;
+	width: 223px;
+	height: 100px;
+	left: 0px;
+	top: 0px;
+}
+#Text_da {
+	opacity: 0;
+	left: 32px;
+	top: 27px;
+	position: absolute;
+	overflow: visible;
+	width: 101px;
+	white-space: nowrap;
+	line-height: 50px;
+	margin-top: -12.5px;
+	text-align: center;
+	font-family: Noto Sans JP;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 25px;
+	color: rgba(255,255,255,1);
+}
+div#button_group button{
+    display:inline;
+}
+button[name='button_confirm']{
+    left: 0px;
+	top: 15px;
+	overflow: visible;
+	margin-left: 89px;
+	width: 212px;
+	height: 70px;
+	line-height: 50px;
+	margin-top: -5px;
+	text-align: center;
+	font-family: Heisei Maru Gothic Std;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 40px;
+	color: rgba(255,255,255,1);
+	background-color: rgba(44,195,242,1);
+	border-radius: 1em;
+}
+button[name='button_confirm_back']{
+    left: 0px;
+	top: 15px;
+	overflow: visible;
+	margin-left: 89px;
+	width: 212px;
+	height: 70px;
+	line-height: 50px;
+	margin-top: -5px;
+	text-align: center;
+	font-family: Heisei Maru Gothic Std;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 40px;
+	color: rgba(255,255,255,1);
+	background-color: rgba(44,195,242,1);
+	border-radius: 1em;
+}
+/*button[name='button_input'] {
+	left: 0px;
+	top: 15px;
+	overflow: visible;
+	margin-left: 269px;
+	width: 212px;
+	height: 70px;
+	line-height: 50px;
+	margin-top: -5px;
+	text-align: center;
+	font-family: Heisei Maru Gothic Std;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 40px;
+	color: rgba(255,255,255,1);
+	background-color: rgba(44,195,242,1);
+	border-radius: 1em;
+}*/
+/*div#career_passport,div#teacher_comment,form#comment_form*/form#confirm{
+	margin-left:31px;
+	margin-bottom:30px;
+}
+/*div#chart,div#error_text,div#error_text_c{
+	margin-left:31px;
+}*/
+textarea#area/*,textarea#teacher_comment,textarea#confirm_text*/{
+	border: 1px solid rgba(112,112,112,1);
+    border-radius: 1.0em;
+	resize: none;
+	width:776px;
+	height:113px;
+	font-family: Noto Sans JP;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px;
+    color: rgba(112,112,112,1);
+    margin-bottom: 30px;
+}
+h6#label{
+    font-family: Noto Sans JP;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px;
+    color: rgba(112,112,112,1);
+}
+/*p#error_text_c{
+	font-family: Noto Sans JP;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px;
+    color: rgb(255, 0, 0);
+}
+p#error_text{
+	font-family: Noto Sans JP;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px;
+    color: rgb(255, 0, 0);
+}
+p.alart{
+    font-family: Noto Sans JP;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px;
+    color: rgb(255, 0, 0);
+}
+select#grade_select{
+	border:2px solid rgb(0, 0, 0);
+	font-family: Noto Sans JP;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+	margin-left:31px;
+	height:30px;
+	width:250px;
+	border-radius: 0.5em;
+}*/

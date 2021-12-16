@@ -1,0 +1,71 @@
+#index {
+	position: absolute;
+	width: 1024px;
+	height: 2097px;
+	background-color: rgba(255,255,255,1);
+	overflow: hidden;
+	--web-view-name: pass;
+	--web-view-id: pass;
+	--web-scale-on-resize: true;
+	--web-enable-deep-linking: true;
+	z-index: 10;
+}
+#n_272 {
+	fill: rgba(245,245,245,1);
+}
+.n_272 {
+	position: absolute;
+	overflow: visible;
+	width: 1024px;
+	height: 2097px;
+	left: 0px;
+	top: 0px;
+	z-index: -1;
+}
+#n_36 {
+	position: absolute;
+	width: 871px;
+	height: 1769px;
+	left: 77px;
+	top: 230px;
+	overflow: visible;
+}
+#n_275 {
+	fill: rgba(255,255,255,1);
+}
+.n_275 {
+	position: absolute;
+	overflow: visible;
+	width: 871px;
+	height: 1769px;
+	left: 0px;
+	top: 0px;
+}
+#n_276 {
+	fill: rgba(44,195,242,1);
+}
+.n_276 {
+	position: absolute;
+	overflow: visible;
+	width: 871px;
+	height: 86px;
+	left: 0px;
+	top: 0px;
+}
+#n_54 {
+	position: absolute;
+	width: 807px;
+	height: 546px;
+	left: 93px;
+	top: 339px;
+	overflow: visible;
+}
+a#student_list{
+    display:block;
+    font-family: Noto Sans JP;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px;
+    margin-bottom: -10px;
+    margin-left:30px;
+}

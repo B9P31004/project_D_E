@@ -1,0 +1,281 @@
+.mediaViewInfo {
+	--web-view-name: login;
+	--web-view-id: login;
+	--web-scale-on-resize: true;
+	--web-enable-deep-linking: true;
+}
+:root {
+	--web-view-ids: login;
+}
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	border: none;
+}
+div#login{
+    position: absolute;
+	width: 1024px;
+	height: 768px;
+	background-color: rgba(255,255,255,1);
+	overflow: hidden;
+	--web-view-name: login;
+	--web-view-id: login;
+	--web-scale-on-resize: true;
+	--web-enable-deep-linking: true;
+}
+
+#n_265 {
+	fill: rgba(245,245,245,1);
+}
+.n_265 {
+	position: absolute;
+	overflow: visible;
+	width: 1024px;
+	height: 768px;
+	left: 0px;
+	top: 0px;
+}
+#n_266 {
+	fill: rgba(255,255,255,1);
+}
+.n_266 {
+	position: absolute;
+	overflow: visible;
+	width: 842px;
+	height: 474px;
+	left: 91px;
+	top: 147px;
+}
+#n_267 {
+	fill: rgba(241,241,241,1);
+}
+.n_267 {
+	filter: drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.161));
+	position: absolute;
+	overflow: visible;
+	width: 828px;
+	height: 228px;
+	left: 113px;
+	top: 285px;
+}
+#n_58 {
+	fill: transparent;
+	stroke: rgba(112,112,112,1);
+	stroke-width: 1px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.n_58 {
+	overflow: visible;
+	position: absolute;
+	width: 798.322px;
+	height: 1px;
+	left: 113.358px;
+	top: 383.993px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#ID {
+	left: 113px;
+	top: 311px;
+	position: absolute;
+	overflow: visible;
+	width: 245px;
+	height: 39px;
+	text-align: center;
+	font-family: Noto Sans JP;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 35px;
+	color: rgba(112,112,112,1);
+}
+#Text {
+	left: 113px;
+	top: 409px;
+	position: absolute;
+	overflow: visible;
+	width: 245px;
+	height: 35px;
+	text-align: center;
+	font-family: Noto Sans JP;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 35px;
+	color: rgba(112,112,112,1);
+}
+#n_20 {
+	position: absolute;
+	width: 226px;
+	height: 70px;
+	left: 399px;
+	top: 510px;
+	overflow: visible;
+}
+#n_270 {
+	fill: rgba(44,195,242,1);
+}
+.n_270 {
+	filter: drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.161));
+	position: absolute;
+	overflow: visible;
+	width: 242px;
+	height: 100px;
+	left: 7px;
+	top: 0px;
+	cursor: pointer;
+}
+#Text_ {
+	left: 0px;
+	top: 15px;
+	position: absolute;
+	overflow: visible;
+	width: 227px;
+	height: 40px;
+	--web-animation: fadein 0.3s ease-out;
+	--web-action-type: page;
+	--web-action-target: index.html;
+	cursor: pointer;
+	line-height: 50px;
+	margin-top: -5px;
+	text-align: center;
+	font-family: Heisei Maru Gothic Std;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 40px;
+	color: rgba(255,255,255,1);
+    border: none;
+    outline: none;
+    background: transparent;
+}
+#n_42__1 {
+	position: absolute;
+	width: 516px;
+	height: 72px;
+	left: 369px;
+	top: 300px;
+	overflow: visible;
+}
+input[name=username] {
+	position: absolute;
+	overflow: visible;
+	width: 516px;
+	height: 72px;
+	left: 0px;
+	top: 0px;
+    border: none;
+    border-radius: 0.3em;
+    outline:none;
+    font-family: Noto Sans JP;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 30px;
+}
+input[name=username]::placeholder {
+	left: 35px;
+	top: 23px;
+	position: absolute;
+	overflow: visible;
+	width: 211px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Noto Sans JP;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 30px;
+	color: rgba(112,112,112,0.388);
+}
+#n_44__1 {
+	position: absolute;
+	width: 516px;
+	height: 72px;
+	left: 369px;
+	top: 398px;
+	overflow: visible;
+}
+input[name=password]{
+    position: absolute;
+	overflow: visible;
+	width: 516px;
+	height: 72px;
+	left: 0px;
+	top: 0px;
+    border: none;
+    border-radius: 0.3em;
+    outline:none;
+    font-family: Noto Sans JP;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 30px;
+}
+input[name=password]::placeholder {
+	left: 39px;
+	top: 23px;
+	position: absolute;
+	overflow: visible;
+	width: 239px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Noto Sans JP;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 30px;
+	color: rgba(112,112,112,0.388);
+}
+#Text_bd {
+	left: 244px;
+	top: 186px;
+	position: absolute;
+	overflow: visible;
+	width: 537px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Noto Sans JP;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 60px;
+	color: rgba(112,112,112,1);
+}
+#n_ID {
+	left: 117px;
+	top: 499px;
+	position: absolute;
+	overflow: visible;
+	width: 525px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Noto Sans JP;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 22px;
+	color: rgba(255,56,56,1);
+}
+#text{
+	left: 244px;
+	top: 296px;
+	position: absolute;
+	overflow: visible;
+	width: 537px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Noto Sans JP;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 30px;
+	color: rgb(0, 0, 0);
+}
+#login_url{
+	left: 244px;
+	top: 366px;
+	position: absolute;
+	overflow: visible;
+	width: 537px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Noto Sans JP;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 30px;
+	color: rgb(0, 0, 0);
+}

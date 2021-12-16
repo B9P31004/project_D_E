@@ -1,0 +1,45 @@
+{% extends 'teacher_confirmation/base.html' %}
+{% load boost %}
+{% load static %}
+{% block extra_css,js %}
+<link rel="stylesheet" href="{% static 'css/file_uploader_css/file_uploader.css' %}">
+<script src="{% static 'js/file_uploader_js/file_uploader.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+<svg class="n_272">
+    
+</svg>
+<svg class="n_15">
+	<ellipse id="n_15" rx="45" ry="45" cx="45" cy="45">
+	</ellipse>
+</svg>
+<div id="n_36">
+	<svg class="n_275">
+		<rect id="n_275" rx="0" ry="0" x="0" y="0" width="871" height="1769">
+		</rect>
+	</svg>
+	<svg class="n_276">
+		<rect id="n_276" rx="0" ry="0" x="0" y="0" width="871" height="86">
+		</rect>
+	</svg>
+</div>
+<div id="n_54">
+	<table>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form}}
+            <tr><td></td><td><input name="button" type="submit" value="確定"></td></tr>
+        </form>
+    </table>
+</div>
+<div id="n_1__1" class="________1___1">
+	<svg class="n_283">
+		<rect id="n_283" rx="5" ry="5" x="0" y="0" width="163" height="40">
+		</rect>
+	</svg>
+	<div id="Text_da">
+		<span>振り返り</span>
+	</div>
+</div>
+{% endblock content %}

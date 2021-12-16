@@ -1,11 +1,5 @@
 from django import forms
-from .models import Text,career_passport01_1
-
-
-class TextForm(forms.ModelForm):
-    class Meta:
-        model=Text
-        fields=('name','text',)
+"""from .models import Text,career_passport01_1
 
 class career_passport01_1_Form(forms.ModelForm):
     class Meta:
@@ -14,4 +8,4 @@ class career_passport01_1_Form(forms.ModelForm):
         def __init__(self,*args,**kwargs):
             super().__init__(*args,**kwargs)
             for field in self.fields.values():
-                field.widget.attrs['class']='form-control'
+                field.widget.attrs['class']='form-control'"""

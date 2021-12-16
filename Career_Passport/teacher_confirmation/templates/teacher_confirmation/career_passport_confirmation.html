@@ -1,0 +1,150 @@
+{% extends 'teacher_confirmation/base.html' %}
+{% load static %}
+{% block extra_css,js %}
+<link rel="stylesheet" href="{% static 'css/teacher_confirmation_css/teacher_confirmation_detail.css' %}">
+<script src="{% static 'js/chart.min.js' %}"></script>
+<script src="{% static 'js/ajax.js' %}"></script>
+<script src="{% static 'js/graph.js' %}"></script>
+<script src="{% static 'js/career_passport_view_and_comment.js' %}"></script>
+<script src="{% static 'js/teacher_confirmation_js/teacher_confirmation_detail.js' %}"></script>
+<script src="{% static 'js/teacher_confirm_validation.js' %}"></script>
+{% endblock %}
+{% block content %}
+<svg class="n_272">
+    
+</svg>
+<svg class="n_15">
+	<ellipse id="n_15" rx="45" ry="45" cx="45" cy="45">
+	</ellipse>
+</svg>
+<div id="n_36">
+	<svg class="n_275">
+		<rect id="n_275" rx="0" ry="0" x="0" y="0" width="871" height="1769">
+		</rect>
+	</svg>
+	<svg class="n_276">
+		<rect id="n_276" rx="0" ry="0" x="0" y="0" width="871" height="86">
+		</rect>
+	</svg>
+</div>
+<div id="n_6__1" class="________6___1">
+	<div id="n_5__1" class="________5___1">
+		<svg class="n_291">
+			<rect id="n_291" rx="0" ry="0" x="0" y="0" width="124" height="40">
+			</rect>
+		</svg>
+	</div>
+	<div id="n_">
+		<span>1学期始め</span>
+	</div>
+</div>
+<div id="n_7__1" class="________7___1">
+	<div id="n_112">
+		<svg class="n_291_bx">
+			<rect id="n_291_bx" rx="0" ry="0" x="0" y="0" width="124" height="40">
+			</rect>
+		</svg>
+	</div>
+	<div id="n__by">
+		<span>1学期終わり</span>
+	</div>
+</div>
+<div id="n_8__1" class="________8___1">
+	<div id="n_113">
+		<svg class="n_291_b">
+			<rect id="n_291_b" rx="0" ry="0" x="0" y="0" width="124" height="40">
+			</rect>
+		</svg>
+	</div>
+	<div id="n__b">
+		<span>2学期始まり</span>
+	</div>
+</div>
+<div id="n_9__1" class="________9___1">
+	<svg class="n_291_ca">
+		<rect id="n_291_ca" rx="0" ry="0" x="0" y="0" width="124" height="40">
+		</rect>
+	</svg>
+	<div id="n__ca">
+		<span>2学期終わり</span>
+	</div>
+</div>
+<div id="n_10__1" class="________10___1">
+	<svg class="n_291_cb">
+		<rect id="n_291_cb" rx="0" ry="0" x="0" y="0" width="124" height="40">
+		</rect>
+	</svg>
+	<div id="n__cb">
+		<span>3学期始まり</span>
+	</div>
+</div>
+<div id="n_11__1" class="________11___1">
+	<svg class="n_291_cc">
+		<rect id="n_291_cc" rx="0" ry="0" x="0" y="0" width="124" height="40">
+		</rect>
+	</svg>
+	<div id="n__cc">
+		<span>3学期終わり</span>
+	</div>
+</div>
+<div id="n_54">
+	<div id='career_passport'></div>
+	<div id="teacher_comment"></div>
+	<div id="error_text_c"></div>
+    <form id="comment_form" method="POST">
+        {% csrf_token %}
+        <div id="select_value"></div>
+        <br>
+        <div id="teacher_comment_area"></div>
+        <p class="alert" name="teacher_comment_area">入力してください。</p>
+        <br>
+        <div id="add_button"></div>
+    </form>
+	<div id="chart" style="width:400px">
+		<canvas id="gradechart"></canvas>
+	</div>
+	<select id="grade_select"></select>
+	<div id="error_text"></div>
+</div>
+<div id="n_1__1" class="________1___1">
+	<div id="n_32">
+		<svg class="n_274_c">
+			<rect id="n_274_c" rx="5" ry="5" x="0" y="0" width="163" height="61">
+			</rect>
+		</svg>
+		<div id="n__c">
+			<span>閲覧</span>
+		</div>
+	</div>
+	<svg class="n_283">
+		<rect id="n_283" rx="5" ry="5" x="0" y="0" width="163" height="40">
+		</rect>
+	</svg>
+	<div id="Text_da">
+		<span>振り返り</span>
+	</div>
+</div>
+
+<!--<h2>StudentList_detail</h2>
+<h5>{{year}}年{{class}}組</h5>
+<h5>名前:{{name}}</h5>-->
+<div id="student_detail" style="display:none">{{year}}年{{class}}組　{{name}}</div>
+
+<div id="career_passport_url" style="display: none;">
+    /teacher_confirmation/career_passport_confirm_output/{{user.user_ID}}/{{id}}
+</div>
+<div id="teacher_year" style="display: none;">
+    {{teacher_year}}
+</div>
+<div id="grade_url" style="display: none;">
+    /teacher_confirmation/grade_output_confirm/{{user.user_ID}}/{{id}}
+</div>
+{% if select %}
+    <input id='select_number' type="hidden" value="{{select}}"></input>
+{% else %}
+    <input id='select_number' type="hidden" value="0"></input>
+{% endif %}
+{% if select %}
+<p id='send_comment' style="display: none;">{{comment}}</p>
+{% endif %}
+{% endblock content %}

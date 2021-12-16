@@ -1,20 +1,189 @@
 {% extends 'looking_back/base.html' %}
+{% load static %}
+{% block extra_css,js %}
+<link rel="stylesheet" href="{% static 'css/looking_back_css/looking_back.css' %}">
+<script src="{% static 'js/looking_back_js/looking_back_index.js' %}"></script>
+{% endblock %}
+
 {% block content %}
-<h2>index</h2>
-<a href="{% url 'logout' %}">ログアウト</a>
-<br>
-<a href="{% url 'looking_back:analize' %}">analize</a>
-<br>
-{% if career_passport01_1_input == 1 %}
-<a href="{% url 'looking_back:career_passport01_1_input' pk=user.pk %}">CP_01_1_input</a>
-<br>
-{% endif %}
-{% if career_passport01_1_detail_edit == 1 %}
-<a href="{% url 'looking_back:career_passport01_1_detail' pk=user.pk %}">CP_01_1_detail</a>
-<br>
-<a href="{% url 'looking_back:career_passport01_1_edit' pk=user.pk %}">CP_01_1_edit</a>
-<br>
-{% endif %}
-<a href="{% url 'grade_management:grade_input' pk=user.pk %}">G_input</a>
-<br>
+<svg class="n_272">
+    <rect id="n_272" rx="0" ry="0" x="0" y="0" width="1024" height="1430">
+    </rect>
+</svg>
+<div id="n_16">
+    <svg class="n_275">
+        <rect id="n_275" rx="0" ry="0" x="0" y="0" width="871" height="284">
+        </rect>
+    </svg>
+    <svg class="n_276">
+        <rect id="n_276" rx="0" ry="0" x="0" y="0" width="871" height="86">
+        </rect>
+    </svg>
+    <div id="Text_bp">
+        <span>キャリアパスポート記入</span>
+    </div>
+    <svg class="n_60" viewBox="0 0 872 1">
+        <path id="n_60" d="M 0 0 L 872 0">
+        </path>
+    </svg>
+    <div id="Text_br">
+        <span>学期始め</span>
+    </div>
+    <div id="Text_bs">
+        <span>学期終わり</span>
+    </div>
+    <svg class="n_61" viewBox="0 0 1 198">
+        <path id="n_61" d="M 0 198 L 0 0">
+        </path>
+    </svg>
+    {{semester}}
+    {% if semester == 1 %}
+    <div id="n_">
+        <a id="link_semester_w" href="{% url 'looking_back:career_passport_edit_s' pk=user.pk %}">▸1学期</a>
+    </div>
+    <div id="n__bv">
+        <a id="link_semester_w" href="{% url 'looking_back:career_passport_edit_e' pk=user.pk %}">▸1学期</a>
+    </div>
+    <div id="n__bw">
+        <span>▸2学期</span>
+    </div>
+    <div id="n__bx">
+        <span>▸2学期</span>
+    </div>
+    <div id="n__by">
+        <span>▸3学期</span>
+    </div>
+    <div id="n__bz">
+        <span>▸3学期</span>
+    </div>
+    {% elif semester == 2 %}
+    <div id="n_">
+        <span>▸1学期</span>
+    </div>
+    <div id="n__bv">
+        <span>▸1学期</span>
+    </div>
+    <div id="n__bw">
+        <a id="link_semester_w" href="{% url 'looking_back:career_passport_edit_s' pk=user.pk %}">▸2学期</a>
+    </div>
+    <div id="n__bx">
+        <a id="link_semester_w" href="{% url 'looking_back:career_passport_edit_e' pk=user.pk %}">▸2学期</a>
+    </div>
+    <div id="n__by">
+        <span>▸3学期</span>
+    </div>
+    <div id="n__bz">
+        <span>▸3学期</span>
+    </div>
+    {% elif semester == 3 %}
+    <div id="n_">
+        <span>▸1学期</span>
+    </div>
+    <div id="n__bv">
+        <span>▸1学期</span>
+    </div>
+    <div id="n__bw">
+        <span>▸2学期</span>
+    </div>
+    <div id="n__bx">
+        <span>▸2学期</span>
+    </div>
+    <div id="n__by">
+        <a id="link_semester_w" href="{% url 'looking_back:career_passport_edit_s' pk=user.pk %}">▸3学期</a>
+    </div>
+    <div id="n__bz">
+        <a id="link_semester_w" href="{% url 'looking_back:career_passport_edit_e' pk=user.pk %}">▸3学期</a>
+    </div>
+    {% endif %}
+</div>
+<svg class="n_275_b">
+    <rect id="n_275_b" rx="0" ry="0" x="0" y="0" width="871" height="284">
+    </rect>
+</svg>
+<svg class="n_276_b">
+    <rect id="n_276_b" rx="0" ry="0" x="0" y="0" width="871" height="86">
+    </rect>
+</svg>
+<div id="Text_b">
+    <span>キャリアパスポート確認</span>
+</div>
+<div id="Text_ca">
+    <span>全学年</span>
+</div>
+<div id="Text_cb">
+    <!--<span>学期終わり</span>-->
+</div>
+<svg class="n_61_b" viewBox="0 0 1 198">
+    <path id="n_61_b" d="M 0 198 L 0 0">
+    </path>
+</svg>
+<div id="n__b">
+    <!--<span>▸1学期</span>-->
+</div>
+<div id="n__ca">
+    <!--<span>▸1学期</span>-->
+</div>
+<div id="n__cb">
+    <a id="link_semester_w" href="{% url 'looking_back:career_passport_detail' pk=user.pk %}">▸見る</a>
+</div>
+<div id="n__cc">
+    <!--<span>▸2学期</span>-->
+</div>
+<div id="n__cd">
+    <!--<span>▸3学期</span>-->
+</div>
+<div id="n__ce">
+    <!--<span>▸3学期</span>-->
+</div>
+<div id="n_227">
+    <div id="n_16_ce">
+        <svg class="n_275_cf">
+            <rect id="n_275_cf" rx="0" ry="0" x="0" y="0" width="871" height="185">
+            </rect>
+        </svg>
+        <svg class="n_276_cg">
+            <rect id="n_276_cg" rx="0" ry="0" x="0" y="0" width="871" height="86">
+            </rect>
+        </svg>
+        <div id="Text_ch">
+            <span>行事</span>
+        </div>
+        <svg class="n_61_ci" viewBox="0 0 1 99">
+            <path id="n_61_ci" d="M 0 99 L 0 0">
+            </path>
+        </svg>
+    </div>
+</div>
+<div id="n_17">
+    <svg class="n_1" viewBox="0 0 871 185.5">
+        <path id="n_1" d="M 0 0 L 871 0 L 871 185.5 L 0 185.5 L 0 0 Z">
+        </path>
+    </svg>
+    <svg class="n_276_cl">
+        <rect id="n_276_cl" rx="0" ry="0" x="0" y="0" width="871" height="86">
+        </rect>
+    </svg>
+    <div id="Text_cm">
+        <span>適職診断</span>
+    </div>
+    <div id="Text_cn">
+        <a id="link_semester_w" href="{% url 'looking_back:occupational_aptitude' pk=user.pk %}">▸診断する</a>
+    </div>
+    <div id="Text_co">
+        <a id="link_semester_w" href="{% url 'looking_back:occupational_aptitude_result' pk=user.pk %}">▸過去の診断を見る</a>
+    </div>
+</div>
+<!--<div id="n__cx">
+    <span>▸1学期</span>
+</div>-->
+<div id="n__cy">
+    <a id="link_semester_w" href="{% url 'looking_back:event' pk=user.pk %}">▸見る</a>
+</div>
+<!--<div id="n__cz">
+    <span>▸3学期</span>
+</div>-->
+<div id="Text_c">
+    <span>全学期</span>
+</div>
+<!--<a href="{% url 'grade_management:grade_input' pk=user.pk %}">G_input</a>-->
 {% endblock content %}

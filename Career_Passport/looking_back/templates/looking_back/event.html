@@ -1,0 +1,99 @@
+{% extends 'looking_back/base.html' %}
+{% load boost %}
+{% load static %}
+{% block extra_css,js %}
+<link rel="stylesheet" href="{% static 'css/looking_back_css/looking_back_event.css' %}">
+<script src="{% static 'js/looking_back_js/looking_back_event.js' %}"></script>
+{% endblock %}
+{% block content %}
+<svg class="n_272">
+    
+</svg>
+<svg class="n_15">
+	<ellipse id="n_15" rx="45" ry="45" cx="45" cy="45">
+	</ellipse>
+</svg>
+<div id="n_36">
+	<svg class="n_275">
+		<rect id="n_275" rx="0" ry="0" x="0" y="0" width="871" height="1769">
+		</rect>
+	</svg>
+	<svg class="n_276">
+		<rect id="n_276" rx="0" ry="0" x="0" y="0" width="871" height="86">
+		</rect>
+	</svg>
+</div>
+<div id="n_6__1" class="________6___1">
+	<div id="n_5__1" class="________5___1">
+		<svg class="n_291">
+			<rect id="n_291" rx="0" ry="0" x="0" y="0" width="124" height="40">
+			</rect>
+		</svg>
+	</div>
+	<div id="n_">
+		<span>1学期</span>
+	</div>
+</div>
+<div id="n_7__1" class="________7___1">
+	<div id="n_112">
+		<svg class="n_291_bx">
+			<rect id="n_291_bx" rx="0" ry="0" x="0" y="0" width="124" height="40">
+			</rect>
+		</svg>
+	</div>
+	<div id="n__by">
+		<span>2学期</span>
+	</div>
+</div>
+<div id="n_8__1" class="________8___1">
+	<div id="n_113">
+		<svg class="n_291_b">
+			<rect id="n_291_b" rx="0" ry="0" x="0" y="0" width="124" height="40">
+			</rect>
+		</svg>
+	</div>
+	<div id="n__b">
+		<span>3学期</span>
+	</div>
+</div>
+<div id="n_54">
+	<div id="n_236_cd">
+		<div id="n__ca">
+			<span id="event_01">○ 入学式</span>
+		</div>
+		<div id="event_1"></div>
+		<div id="Text_b">
+			<span>もっと見る→</span>
+		</div>
+	</div>
+	<div id="n_236_ca">
+		<div id="n_1">
+			<span id="event_02">○ 1年生歓迎会</span>
+		</div>
+		<div id="event_2"></div>
+		<div id="Text_cg">
+			<span>もっと見る→</span>
+		</div>
+	</div>
+	<div id="n_236_ch">
+		<div id="n__ci">
+			<span id="event_03">○ 交通教室</span>
+		</div>
+		<div id="event_3"></div>
+		<div id="Text_cn">
+			<span>もっと見る→</span>
+		</div>
+	</div>
+</div>
+<div id="career_passport_url" style="display: none;">
+    {% url 'looking_back:career_passport_output' pk=user.pk %}
+</div>
+
+<h3>grade_chart</h3>
+<div id="grade_url" style="display: none;">
+    {% url 'grade_management:grade_output' pk=user.pk %}
+</div>
+<div id="event_url" style="display: none;">
+	{% url 'file_uploader:event_output' pk=user.pk %}
+</div>
+{% endblock content %}

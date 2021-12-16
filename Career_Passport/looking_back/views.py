@@ -1,314 +1,386 @@
 from django.shortcuts import render, redirect
 from django.views import generic
 from django.urls import reverse_lazy
-from .forms import TextForm,career_passport01_1_Form
 from django.http import HttpResponseRedirect
 from django.contrib.auth.mixins import LoginRequiredMixin
-from Career_Passport.mixins import StudentMixin
+from Career_Passport.mixins import StudentMixin,StudentIndexMixin
 from itertools import chain
-from .models import career_passport01_1
-from grade_management.models import grades
-#import json
+from file_uploader.models import FileSave
+import json
+import os
+from django.http import HttpResponse
+from looking_back.modules import rw_career_passport_json as rw_json
+from looking_back.modules import semester_confirm
+from looking_back.modules import np_analize
+from looking_back.modules import rw_occupational_aptitude
 
 #from datetime import datetime
 #from pytz import timezone
 
 # Create your views here.
 
-class IndexView(LoginRequiredMixin,generic.TemplateView):
+class IndexView(LoginRequiredMixin,StudentIndexMixin,generic.TemplateView):
     template_name='looking_back/index.html'
-    
-    def get(self, request, **kwargs):
-        career_passport01_1_input=1
-        career_passport01_1_detail_edit=0
-        if career_passport01_1.objects.filter(UniqueID=self.request.user).exists():
-            career_passport01_1_input=0
-            career_passport01_1_detail_edit=1
+    def get(self,request,**kwargs):
+        semester=semester_confirm.semester_confirm()
         context={
-            'career_passport01_1_input':career_passport01_1_input,
-            'career_passport01_1_detail_edit':career_passport01_1_detail_edit,
+            'semester':semester,
         }
         return render(request,'looking_back/index.html',context)
-    
 
-class analizeView(generic.FormView):
-    template_name='looking_back/analize.html'
-    form_class=TextForm
-    success_url=reverse_lazy('looking_back:analyze')
-    def post(self,request,*args,**kwargs):
-        text=request.POST.get('text')
-        return render(request,self.template_name,{'text':text})
-    #return text
-
-class career_passport01_1_input(LoginRequiredMixin,StudentMixin,generic.FormView):
-    model=career_passport01_1
-    template_name="looking_back/career_passport_input.html"
-    form_class=career_passport01_1_Form
-    #success_url=reverse_lazy('looking_back:career_passport01_1_confirm')
-    def get_success_url(self):
-        return redirect('looking_back:career_passport01_1_confirm', pk=self.kwargs['pk'])
-    #def get_success_url(self):
-        #return redirect(reverse_lazy('looking_back:career_passport01_1_confirm',kwargs={'pk':self.kwargs['pk']}))
-    #def get_context_data(self, **kwargs):
-        #context = super().get_context_data(**kwargs)
-        #context['pk'] = self.kwargs['pk']        
-        #return context
-    #def form_valid(self,form):
-    #            query_set=form.save(commit=False)
-    #            query_set.user_id=self.request.user
-    #            print(query_set)
-    #            query_set.save()
-    #            return super().form_valid(form)
+class occupational_aptitude(LoginRequiredMixin,StudentMixin,generic.TemplateView):
+    template_name='looking_back/occupational_attitude'
+    def get(self,request,**kwargs):
+        data=rw_occupational_aptitude.occupatonal_aptitude_original_read()
+        context={}
+        context["question"]=data
+        context["length"]=len(data)
+        return render(request,'looking_back/occupational_aptitude.html',context)
 
     def post(self,request,*args,**kwargs):
+        data=rw_occupational_aptitude.occupatonal_aptitude_original_read()
         if 'button_input' in request.POST:
-            #print (request.POST)
-            context={
-                'career_passport_lists':[
-                    request.POST.get('my_current'),
-                    request.POST.get('my_PR'),
-                    request.POST.get('my_dream'),
-                    request.POST.get('getting_skills'),
-                    request.POST.get('study_target'),
-                    request.POST.get('for_study_target'),
-                    request.POST.get('life_target'),
-                    request.POST.get('for_life_target'),
-                    request.POST.get('local_target'),
-                    request.POST.get('for_local_target'),
-                    request.POST.get('others_target'),
-                    request.POST.get('for_others_target')
-                ]
-            }
+            loop=int(request.POST.get('length'))
+            r_list=[]
+            for i in range(0,loop,1):
+                r_list.append(request.POST.get(str(i)))
+            context={}
+            context['question']=data
+            context['result']=r_list
             request.session['form_data']=request.POST
-            return render(request,'looking_back/career_passport_confirm.html',context)
+            return render(request,'looking_back/occupational_aptitude_confirm.html',context)
         elif 'button_confirm' in request.POST:
-            if career_passport01_1.objects.filter(UniqueID=self.request.user).exists():
-                context={
-                    'comment':'データが既にあります。更新ページから更新してください'
-                }
-                return render(request,'looking_back/career_passport_result.html',context)
-            else:
-                form=request.session.get('form_data')
-                form=career_passport01_1_Form(form)
-                if form.is_valid():
-                    form=form.save(commit=False)
-                    form.UniqueID=self.request.user
-                    print(form)
-                    form.save()
-                context={
-                    'comment':'成功しました'
-                }
-                return render(request,'looking_back/career_passport_result.html',context)
-        elif 'button_confirm_back' in request.POST:
-            form=career_passport01_1_Form(request.session.get('form_data'))
+            f_data=request.session.get('form_data')
+            r_data=[]
+            a_data=[]
+            for i in range(0,int(f_data["length"]),1):
+                r_data.append(f_data[str(i)])
+            rw_occupational_aptitude.occupational_aptitude_write(self.request.user.school_ID.id,self.request.user.user_ID,r_data)
+            for text in r_data:
+                a_data.append(np_analize.judge_np(text))
+            sf_comment=np_analize.occupational_aptitude(self.request.user.school_ID.id,self.request.user.user_ID)
             context={
-                'form':form,
+                'comment':sf_comment,
+                'result_url':1
             }
-            return render(request,'looking_back/career_passport_input.html',context)
+            return render(request,'looking_back/occupational_aptitude_input_result.html',context)
+        elif 'button_confirm_back' in request.POST:
+            f_data=request.session.get('form_data')
+            loop=int(f_data['length'])
+            r_list=[]
+            for i in range(0,loop,1):
+                r_list.append(f_data[str(i)])
+            context={}
+            context['question']=data
+            context['result']=r_list
+            context["length"]=len(data)
+            return render(request,'looking_back/occupational_aptitude.html',context)
 
-
-#class career_passport01_1_confirm(generic.FormView):
-#    success_url=reverse_lazy('looking_back:index')
-#    def get(self,request,*args,**kwargs):
-#        context={
-#            "my_current":"a",
-#        }
-#        return render(request,self.template_name,context)
-
-class career_passport01_1_detail(LoginRequiredMixin,StudentMixin,generic.DetailView):
-    #model=career_passport01_1
-    template_name='looking_back/career_passport_detail.html'
-    #slug_field='UniqueID'
-    #slug_url_kwarg='UniqueID'
-    #pk_url_kwarg='UniqueID'
-
-    #def get_queryset(self):
-    #    queryset=career_passport01_1.objects.filter(UniqueID=self.request.user).all()
-    #    print(self.request.user.id)
-    #    print(queryset)
-    #    return queryset
-
-    """def get_context_data(self,**kwargs):
-        context=get_context_data(UniqueID=self.request.user.id)
-        context.update({
-            'grades':grades.objects.get(UniqueID=self.request.user.id)
-        })
-        return context"""
-
-    """def get_queryset(self):
-        x=career_passport01_1.objects.filter(UniqueID=self.request.user).values()
-        y=grades.objects.filter(UniqueID=self.request.user.id)
-        print(type(x))
-        print(x)
-        return x
-        #career_passport01_1.objects.get(UniqueID=self.request.user.id)"""
-
-    #model=grades
-    """def get_object(self,queryset=None):
-        #if grades.objects.filter(UniqueID=self.request.user).exists():
-            #return grades.objects.get(UniqueID=self.request.user.id)
-        return career_passport01_1.objects.get(UniqueID=self.request.user.id)"""
-    
-    def get(self, request, **kwargs):
-        option01_1_m=''
-        option01_1_e=''
-        option01_2_m=''
-        option01_2_e=''
-        option01_3_m=''
-        option01_3_e=''
-        option02_1_m=''
-        option02_1_e=''
-        option02_2_m=''
-        option02_2_e=''
-        option02_3_m=''
-        option02_3_e=''
-        option03_1_m=''
-        option03_1_e=''
-        option03_2_m=''
-        option03_2_e=''
-        option03_3_m=''
-        option03_3_e=''
-        if grades.objects.filter(UniqueID=self.request.user.id,school_year=1,semester=1,regular_test="中間").exists():
-            option01_1_m='<option value="10101">1年一学期中間</option>'
-        if grades.objects.filter(UniqueID=self.request.user.id,school_year=1,semester=1,regular_test="期末").exists():
-            option01_1_e='<option value="10102">1年一学期期末</option>'
-        if grades.objects.filter(UniqueID=self.request.user.id,school_year=1,semester=2,regular_test="中間").exists():
-            option01_2_m='<option value="10201">1年二学期中間</option>'
-        if grades.objects.filter(UniqueID=self.request.user.id,school_year=1,semester=2,regular_test="期末").exists():
-            option01_2_e='<option value="10202">1年二学期期末</option>'
-        if grades.objects.filter(UniqueID=self.request.user.id,school_year=1,semester=3,regular_test="中間").exists():
-            option01_3_m='<option value="10301">1年三学期中間</option>'
-        if grades.objects.filter(UniqueID=self.request.user.id,school_year=1,semester=3,regular_test="期末").exists():
-            option01_3_e='<option value="10302">1年三学期期末</option>'
-        if grades.objects.filter(UniqueID=self.request.user.id,school_year=2,semester=1,regular_test="中間").exists():
-            option02_1_m='<option value="20101">2年一学期中間</option>'
-        if grades.objects.filter(UniqueID=self.request.user.id,school_year=2,semester=1,regular_test="期末").exists():
-            option02_1_e='<option value="20102">2年一学期期末</option>'
-        if grades.objects.filter(UniqueID=self.request.user.id,school_year=2,semester=2,regular_test="中間").exists():
-            option02_2_m='<option value="20201">2年二学期中間</option>'
-        if grades.objects.filter(UniqueID=self.request.user.id,school_year=2,semester=2,regular_test="期末").exists():
-            option02_2_e='<option value="20202">2年二学期期末</option>'
-        if grades.objects.filter(UniqueID=self.request.user.id,school_year=2,semester=3,regular_test="中間").exists():
-            option02_3_m='<option value="20301">2年三学期中間</option>'
-        if grades.objects.filter(UniqueID=self.request.user.id,school_year=2,semester=3,regular_test="期末").exists():
-            option02_3_e='<option value="20302">2年三学期期末</option>'
-        if grades.objects.filter(UniqueID=self.request.user.id,school_year=3,semester=1,regular_test="中間").exists():
-            option03_1_m='<option value="30101">3年一学期中間</option>'
-        if grades.objects.filter(UniqueID=self.request.user.id,school_year=3,semester=1,regular_test="期末").exists():
-            option03_1_e='<option value="30101">3年一学期期末</option>'
-        if grades.objects.filter(UniqueID=self.request.user.id,school_year=3,semester=2,regular_test="中間").exists():
-            option03_2_m='<option value="30201">3年二学期中間</option>'
-        if grades.objects.filter(UniqueID=self.request.user.id,school_year=3,semester=2,regular_test="期末").exists():
-            option03_2_e='<option value="30202">3年二学期期末</option>'
-        if grades.objects.filter(UniqueID=self.request.user.id,school_year=3,semester=3,regular_test="中間").exists():
-            option03_3_m='<option value="30301">3年三学期中間</option>'
-        if grades.objects.filter(UniqueID=self.request.user.id,school_year=3,semester=3,regular_test="期末").exists():
-            option03_3_e='<option value="30302">3年三学期期末</option>'
-        context={
-            'option_list':[
-                option01_1_m,
-                option01_1_e,
-                option01_2_m,
-                option01_2_e,
-                option01_3_m,
-                option01_3_e,
-                option02_1_m,
-                option02_1_e,
-                option02_2_m,
-                option02_2_e,
-                option02_3_m,
-                option02_3_e,
-                option03_1_m,
-                option03_1_e,
-                option03_2_m,
-                option03_2_e,
-                option03_3_m,
-                option03_3_e,
-            ],
-            'object':career_passport01_1.objects.get(UniqueID=self.request.user.id),
-            'form':career_passport01_1_Form,
-        }
-        print(career_passport01_1_Form)
-        return render(request,'looking_back/career_passport_detail.html',context)
-
-class career_passport01_1_edit(generic.UpdateView):
-    template_name='looking_back/career_passport_edit.html'
-    model=career_passport01_1
-    form_class=career_passport01_1_Form
-    def get_success_url(self):
-        return redirect('looking_back:career_passport01_1_confirm', pk=self.kwargs['pk'])
-    def get_form(self):
-        form = super(career_passport01_1_edit, self).get_form()
-        return form
-    def get_object(self,queryset=None):
-        if career_passport01_1.objects.filter(UniqueID=self.request.user).exists():
-            return career_passport01_1.objects.get(UniqueID=self.request.user.id)
+class occupational_aptitude_result(LoginRequiredMixin,StudentMixin,generic.TemplateView):
+    template_name='occupational_aptitude_result.html'
+    def get(self,request,**kwargs):
+        question=rw_occupational_aptitude.occupatonal_aptitude_original_read()
+        data=rw_occupational_aptitude.occupational_aptitude_read(self.request.user.school_ID.id,self.request.user.user_ID)
+        if type(data)!=str:
+            result=data['result']
+            analize=data['analize']
+            qra=[question,result,analize]
+            context={
+                'question':question,
+                'result':result,
+                'analize':analize
+            }
         else:
             context={
-                'comment':'データが登録されていません'
+                'empty':data
             }
-    
+        return render(request,'looking_back/occupational_aptitude_result.html',context)
+
+class occupational_aptitude_output(LoginRequiredMixin,StudentMixin,generic.DetailView):
+    def get(self,request,*args,**kwargs):
+        def get_object():
+            occupational_aptitude_object=rw_occupational_aptitude.occupational_aptitude_read(self.request.user.school_ID.id,self.request.user.user_ID)
+            return occupational_aptitude_object
+        occupational_aptitude=get_object()
+        if type(occupational_aptitude)!=str:
+            question=rw_occupational_aptitude.occupatonal_aptitude_original_read()
+            response={
+                'question':question,
+                'result':occupational_aptitude['result'],
+                'analize':occupational_aptitude['analize'],
+                'empty':1
+            }
+            response_json=json.dumps(response)
+        else:
+            response={
+                'empty':occupational_aptitude
+            }
+            response_json=json.dumps(response)
+        return HttpResponse(response_json)
+
+
+class career_passport_edit_s(LoginRequiredMixin,StudentMixin,generic.TemplateView):
+    template_name="looking_back/career_passport_edit.html"
+    def get(self,request,**kwargs):
+        semester=semester_confirm.semester_confirm()
+        data=rw_json.career_passport_original_read(self.request.user.school_ID.id,self.request.user.student_year,semester,'s')
+        context={
+            'year':self.request.user.student_year,
+            'semester':semester,
+        }
+        if os.path.isfile('static/career_passport/'+str(self.request.user.school_ID.id)+'/student_register/career_passport_'+str(self.request.user.user_ID)+'.json')==True:
+            s_data=rw_json.get_career_passport(self.request.user.school_ID.id,self.request.user.user_ID)
+            if 'student_career_passport_'+str(self.request.user.student_year) in s_data:
+                if 'semester_'+str(semester) in s_data['student_career_passport_'+str(self.request.user.student_year)]:
+                    if 'result_s' in s_data['student_career_passport_'+str(self.request.user.student_year)]['semester_'+str(semester)]["result"][0]:
+                        context["result"]=s_data['student_career_passport_'+str(self.request.user.student_year)]['semester_'+str(semester)]["result"][0]["result_s"]
+                        if len(data)>len(context["result"]):
+                            context["result"].append("")
+        context["question"]=data
+        context["length"]=len(data)
+        return render(request,'looking_back/career_passport_edit.html',context)
+
     def post(self,request,*args,**kwargs):
-        if 'button_edit' in request.POST:
-            print (request.POST)
+        semester=semester_confirm.semester_confirm()
+        data=rw_json.career_passport_original_read(self.request.user.school_ID.id,self.request.user.student_year,semester,'s')
+        if 'button_input' in request.POST:
+            loop=int(request.POST.get('length'))
+            r_list=[]
+            for i in range(0,loop,1):
+                r_list.append(request.POST.get(str(i)))
             context={
-                'career_passport_lists':[
-                    request.POST.get('my_current'),
-                    request.POST.get('my_PR'),
-                    request.POST.get('my_dream'),
-                    request.POST.get('getting_skills'),
-                    request.POST.get('study_target'),
-                    request.POST.get('for_study_target'),
-                    request.POST.get('life_target'),
-                    request.POST.get('for_life_target'),
-                    request.POST.get('local_target'),
-                    request.POST.get('for_local_target'),
-                    request.POST.get('others_target'),
-                    request.POST.get('for_others_target')
-                ],
-                'form':career_passport01_1_Form,
+                'year':self.request.user.student_year,
+                'semester':semester,
             }
+            context['question']=data
+            context['result']=r_list
             request.session['form_data']=request.POST
             return render(request,'looking_back/career_passport_confirm.html',context)
         elif 'button_confirm' in request.POST:
-            cache=request.session.get('form_data')
-            cp_document=career_passport01_1.objects.get(UniqueID=self.request.user.id)
-            cp_document.my_current=cache['my_current']
-            cp_document.my_PR=cache['my_PR']
-            cp_document.my_dream=cache['my_dream']
-            cp_document.getting_skills=cache['getting_skills']
-            cp_document.study_target=cache['study_target']
-            cp_document.for_study_target=cache['for_study_target']
-            cp_document.life_target=cache['life_target']
-            cp_document.for_life_target=cache['for_life_target']
-            cp_document.local_target=cache['local_target']
-            cp_document.for_local_target=cache['for_local_target']
-            cp_document.others_target=cache['others_target']
-            cp_document.for_others_target=cache['for_others_target']
-            cp_document.save()
-            #career_passport01_1.objects.bulk_update(cp_document,fields=['my_current','my_PR','my_dream','getting_skills','study_target','for_study_target','life_target','for_life_target','local_target','for_local_target','others_target','others_target','for_others_target'])
-            """form=request.session.get('form_data')
-            form=career_passport01_1_Form(form)
-            if form.is_valid():
-                    form=form.save(commit=False)
-                    form.UniqueID=self.request.user
-                    print(form.my_dream)
-                    form.save()
-            def form_valid(self,form):
-                messages.success(self.request,'更新しました')
-                return super().form_valid(form)
-            def form_valid(self,form):
-                messages.error(self.request,'更新できませんでした')
-                return super().form_valid(form)"""
+            f_data=request.session.get('form_data')
+            r_data=[]
+            a_data=[]
+            for i in range(0,int(f_data["length"]),1):
+                r_data.append(f_data[str(i)])
+            rw_json.career_passport_edit(self.request.user.school_ID.id,self.request.user.student_year,semester,self.request.user.user_ID,r_data,'s')
+            for text in r_data:
+                a_data.append(np_analize.judge_np(text))
+            sf_comment=np_analize.register(self.request.user.school_ID.id,self.request.user.student_year,semester,self.request.user.user_ID,a_data,'s')
             context={
-                'comment':'成功しました'
+                'comment':sf_comment
             }
             return render(request,'looking_back/career_passport_result.html',context)
         elif 'button_confirm_back' in request.POST:
-            form=career_passport01_1_Form(request.session.get('form_data'))
-            a=request.session.get('form_data')
-            print(a['my_dream'])
+            f_data=request.session.get('form_data')
+            loop=int(f_data['length'])
             context={
-                'form':form,
+                'year':self.request.user.student_year,
+                'semester':semester,
             }
+            r_list=[]
+            for i in range(0,loop,1):
+                r_list.append(f_data[str(i)])
+            context['question']=data
+            context['result']=r_list
+            context["length"]=len(data)
             return render(request,'looking_back/career_passport_edit.html',context)
+
+class career_passport_edit_e(LoginRequiredMixin,StudentMixin,generic.TemplateView):
+    template_name="looking_back/career_passport_edit.html"
+    def get(self,request,**kwargs):
+        semester=semester_confirm.semester_confirm()
+        data=rw_json.career_passport_original_read(self.request.user.school_ID.id,self.request.user.student_year,semester,'e')
+        context={
+            'year':self.request.user.student_year,
+            'semester':semester,
+        }
+        if os.path.isfile('static/career_passport/'+str(self.request.user.school_ID.id)+'/student_register/career_passport_'+str(self.request.user.user_ID)+'.json')==True:
+            s_data=rw_json.get_career_passport(self.request.user.school_ID.id,self.request.user.user_ID)
+            if 'student_career_passport_'+str(self.request.user.student_year) in s_data:
+                if 'semester_'+str(semester) in s_data['student_career_passport_'+str(self.request.user.student_year)]:
+                    if 'result_s' in s_data['student_career_passport_'+str(self.request.user.student_year)]['semester_'+str(semester)]["result"][0]:
+                        context["result"]=s_data['student_career_passport_'+str(self.request.user.student_year)]['semester_'+str(semester)]["result"][0]["result_e"]
+                        if len(data)>len(context["result"]):
+                            context["result"].append("")
+        context["question"]=data
+        context["length"]=len(data)
+        return render(request,'looking_back/career_passport_edit.html',context)
+
+    def post(self,request,*args,**kwargs):
+        semester=semester_confirm.semester_confirm()
+        data=rw_json.career_passport_original_read(self.request.user.school_ID.id,self.request.user.student_year,semester,'e')
+        if 'button_input' in request.POST:
+            loop=int(request.POST.get('length'))
+            r_list=[]
+            for i in range(0,loop,1):
+                r_list.append(request.POST.get(str(i)))
+            context={
+                'year':self.request.user.student_year,
+                'semester':semester,
+            }
+            context['question']=data
+            context['result']=r_list
+            request.session['form_data']=request.POST
+            return render(request,'looking_back/career_passport_confirm.html',context)
+        elif 'button_confirm' in request.POST:
+            f_data=request.session.get('form_data')
+            r_data=[]
+            a_data=[]
+            for i in range(0,int(f_data["length"]),1):
+                r_data.append(f_data[str(i)])
+            rw_json.career_passport_edit(self.request.user.school_ID.id,self.request.user.student_year,semester,self.request.user.user_ID,r_data,'e')
+            for text in r_data:
+                a_data.append(np_analize.judge_np(text))
+            sf_comment=np_analize.register(self.request.user.school_ID.id,self.request.user.student_year,semester,self.request.user.user_ID,a_data,'e')
+            context={
+                'comment':sf_comment,
+            }
+            return render(request,'looking_back/career_passport_result.html',context)
+        elif 'button_confirm_back' in request.POST:
+            f_data=request.session.get('form_data')
+            loop=int(f_data['length'])
+            context={
+                'year':self.request.user.student_year,
+                'semester':semester,
+            }
+            r_list=[]
+            for i in range(0,loop,1):
+                r_list.append(f_data[str(i)])
+            context['question']=data
+            context['result']=r_list
+            context["length"]=len(data)
+            return render(request,'looking_back/career_passport_edit.html',context)
+
+class career_passport_detail(LoginRequiredMixin,StudentMixin,generic.DetailView):
+    template_name='looking_back/career_passport_detail.html'
+    
+    def get(self, request, **kwargs):
+        option_c={}
+        for y in range(1,4):
+            if y ==self.request.user.student_year:
+                option_c[y*10]='<option selected value="'+str(y)+'0''">'+str(y)+'年</option>'
+            else:
+                option_c[y*10]='<option value="'+str(y)+'0''">'+str(y)+'年</option>'
+
+        context={
+            'career_passport_option_list':[
+                option_c,
+            ]
+        }
+        return render(request,'looking_back/career_passport_detail.html',context)
+
+class career_passport_output(LoginRequiredMixin,StudentMixin,generic.DetailView):
+    def post(self,request,*args,**kwargs):
+        select=request.POST.get('select')
+        def get_object(select):
+            if(select=='101s'):
+                career_passport_object=rw_json.select_career_passport(self.request.user.school_ID.id,1,1,self.request.user.user_ID)
+                return career_passport_object,'s'
+            elif(select=='101e'):
+                career_passport_object=rw_json.select_career_passport(self.request.user.school_ID.id,1,1,self.request.user.user_ID)
+                return career_passport_object,'e'
+            elif(select=='102s'):
+                career_passport_object=rw_json.select_career_passport(self.request.user.school_ID.id,1,2,self.request.user.user_ID)
+                print(career_passport_object)
+                return career_passport_object,'s'
+            elif(select=='102e'):
+                career_passport_object=rw_json.select_career_passport(self.request.user.school_ID.id,1,2,self.request.user.user_ID)
+                print(career_passport_object)
+                return career_passport_object,'e'
+            elif(select=='103s'):
+                career_passport_object=rw_json.select_career_passport(self.request.user.school_ID.id,1,3,self.request.user.user_ID)
+                return career_passport_object,'s'
+            elif(select=='103e'):
+                career_passport_object=rw_json.select_career_passport(self.request.user.school_ID.id,1,3,self.request.user.user_ID)
+                return career_passport_object,'e'
+            elif(select=='201s'):
+                career_passport_object=rw_json.select_career_passport(self.request.user.school_ID.id,2,1,self.request.user.user_ID)
+                return career_passport_object,'s'
+            elif(select=='201e'):
+                career_passport_object=rw_json.select_career_passport(self.request.user.school_ID.id,2,1,self.request.user.user_ID)
+                return career_passport_object,'e'
+            elif(select=='202s'):
+                career_passport_object=rw_json.select_career_passport(self.request.user.school_ID.id,2,2,self.request.user.user_ID)
+                return career_passport_object,'s'
+            elif(select=='202e'):
+                career_passport_object=rw_json.select_career_passport(self.request.user.school_ID.id,2,2,self.request.user.user_ID)
+                return career_passport_object,'e'
+            elif(select=='203s'):
+                career_passport_object=rw_json.select_career_passport(self.request.user.school_ID.id,2,3,self.request.user.user_ID)
+                return career_passport_object,'s'
+            elif(select=='203e'):
+                career_passport_object=rw_json.select_career_passport(self.request.user.school_ID.id,2,3,self.request.user.user_ID)
+                return career_passport_object,'e'
+            elif(select=='301s'):
+                career_passport_object=rw_json.select_career_passport(self.request.user.school_ID.id,3,1,self.request.user.user_ID)
+                return career_passport_object,'s'
+            elif(select=='301e'):
+                career_passport_object=rw_json.select_career_passport(self.request.user.school_ID.id,3,1,self.request.user.user_ID)
+                return career_passport_object,'e'
+            elif(select=='302s'):
+                career_passport_object=rw_json.select_career_passport(self.request.user.school_ID.id,3,2,self.request.user.user_ID)
+                return career_passport_object,'s'
+            elif(select=='302e'):
+                career_passport_object=rw_json.select_career_passport(self.request.user.school_ID.id,3,2,self.request.user.user_ID)
+                return career_passport_object,'e'
+            elif(select=='303s'):
+                career_passport_object=rw_json.select_career_passport(self.request.user.school_ID.id,3,3,self.request.user.user_ID)
+                return career_passport_object,'s'
+            elif(select=='303e'):
+                career_passport_object=rw_json.select_career_passport(self.request.user.school_ID.id,3,3,self.request.user.user_ID)
+                return career_passport_object,'e'
+        career_passport=get_object(select)
+        if type(career_passport[0])!=str:
+            if 'question_'+career_passport[1] in career_passport[0]['question'][0]:
+                response={
+                    'question':career_passport[0]['question'][0]['question_'+career_passport[1]],
+                    'result':career_passport[0]['result'][0]['result_'+career_passport[1]],
+                    'empty':1
+                }
+                if 'comment' in career_passport[0]:
+                    if 'comment_'+career_passport[1] in career_passport[0]['comment'][0]:
+                        add_comment_view={
+                            'comment':career_passport[0]['comment'][0]['comment_'+career_passport[1]]
+                        }
+                        response.update(add_comment_view)
+                response_json=json.dumps(response)
+            else:
+                response={
+                    'empty':career_passport[0]
+                }
+                response_json=json.dumps(response)
+        else:
+            response={
+                'empty':career_passport[0]
+            }
+            response_json=json.dumps(response)
+        return HttpResponse(response_json)
+
+class book(LoginRequiredMixin,StudentIndexMixin,generic.TemplateView):
+    template_name='looking_back/book.html'
+    def get(self, request, **kwargs):
+        book_reserch=self.kwargs.get('book')
+        data=rw_json.read_book_data(book_reserch)
+        if data!=0:
+            context={
+                'length':len(data['title']),
+                'title':data['title'],
+                'author':data['author'],
+                'publisher':data['publisher'],
+                'year':data['year'],
+                'category':data['category'],
+                'etc':data['etc'],
+                'book':book_reserch
+            }
+        else:
+            context={
+                'length':data
+            }
+        print(data)
+        return render(request,'looking_back/book.html',context)
+
+class EventView(LoginRequiredMixin,StudentIndexMixin,generic.TemplateView):
+    template_name='looking_back/event.html'
+
+class load(generic.TemplateView):
+    template_name='looking_back/load.html'

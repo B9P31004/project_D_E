@@ -3,7 +3,7 @@ from django.db import models
 from django.contrib.auth import get_user_model
  
 # Create your models here.
-class Text(models.Model):
+"""class Text(models.Model):
     name=models.CharField(verbose_name="名前",max_length=100,null=False,blank=True)
     text=models.CharField(verbose_name="テキスト",max_length=200,null=False,blank=True)
 
@@ -41,4 +41,4 @@ class career_passport02(models.Model):
 class career_passport03(models.Model):
 
     class Meta:
-        verbose_name_plural='career_passport03'
+        verbose_name_plural='career_passport03'"""

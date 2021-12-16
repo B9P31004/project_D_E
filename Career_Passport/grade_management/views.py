@@ -71,74 +71,133 @@ class grade_output(LoginRequiredMixin,StudentMixin,generic.DetailView):
         select=int(request.POST.get('select'))
         def get_object(select):
             if(select==10101):
-                grade_object=grades.objects.get(UniqueID=self.request.user.id,school_year=1,semester=1,regular_test="中間")
+                if grades.objects.filter(UniqueID=self.request.user.user_ID,school_year=1,semester=1,regular_test="中間").exists():
+                    grade_object=grades.objects.get(UniqueID=self.request.user.user_ID,school_year=1,semester=1,regular_test="中間")
+                else:
+                    grade_object=None
                 return grade_object
             elif(select==10102):
-                grade_object=grades.objects.get(UniqueID=self.request.user.id,school_year=1,semester=1,regular_test="期末")
+                if grades.objects.filter(UniqueID=self.request.user.user_ID,school_year=1,semester=1,regular_test="期末").exists():
+                    grade_object=grades.objects.get(UniqueID=self.request.user.user_ID,school_year=1,semester=1,regular_test="期末")
+                else:
+                    grade_object=None
                 return grade_object
             elif(select==10201):
-                grade_object=grades.objects.get(UniqueID=self.request.user.id,school_year=1,semester=2,regular_test="中間")
+                if grades.objects.filter(UniqueID=self.request.user.user_ID,school_year=1,semester=2,regular_test="中間").exists():
+                    grade_object=grades.objects.get(UniqueID=self.request.user.user_ID,school_year=1,semester=2,regular_test="中間")
+                else:
+                    grade_object=None
                 return grade_object
             elif(select==10202):
-                grade_object=grades.objects.get(UniqueID=self.request.user.id,school_year=1,semester=2,regular_test="期末")
+                if grades.objects.filter(UniqueID=self.request.user.user_ID,school_year=1,semester=2,regular_test="期末").exists():
+                    grade_object=grades.objects.get(UniqueID=self.request.user.user_ID,school_year=1,semester=2,regular_test="期末")
+                else:
+                    grade_object=None
                 return grade_object
             elif(select==10301):
-                grade_object=grades.objects.get(UniqueID=self.request.user.id,school_year=1,semester=3,regular_test="中間")
+                if grades.objects.filter(UniqueID=self.request.user.user_ID,school_year=1,semester=3,regular_test="中間").exists():
+                    grade_object=grades.objects.get(UniqueID=self.request.user.user_ID,school_year=1,semester=3,regular_test="中間")
+                else:
+                    grade_object=None
                 return grade_object
             elif(select==10302):
-                grade_object=grades.objects.get(UniqueID=self.request.user.id,school_year=1,semester=3,regular_test="期末")
+                if grades.objects.filter(UniqueID=self.request.user.user_ID,school_year=1,semester=3,regular_test="期末").exists():
+                    grade_object=grades.objects.get(UniqueID=self.request.user.user_ID,school_year=1,semester=3,regular_test="期末")
+                else:
+                    grade_object=None
                 return grade_object
             elif(select==20101):
-                grade_object=grades.objects.get(UniqueID=self.request.user.id,school_year=2,semester=1,regular_test="中間")
+                if grades.objects.filter(UniqueID=self.request.user.user_ID,school_year=2,semester=1,regular_test="中間").exists():
+                    grade_object=grades.objects.get(UniqueID=self.request.user.user_ID,school_year=2,semester=1,regular_test="中間")
+                else:
+                    grade_object=None
                 return grade_object
             elif(select==20102):
-                grade_object=grades.objects.get(UniqueID=self.request.user.id,school_year=2,semester=1,regular_test="期末")
+                if grades.objects.filter(UniqueID=self.request.user.user_ID,school_year=2,semester=1,regular_test="期末").exists():
+                    grade_object=grades.objects.get(UniqueID=self.request.user.user_ID,school_year=2,semester=1,regular_test="期末")
+                else:
+                    grade_object=None
                 return grade_object
             elif(select==20201):
-                grade_object=grades.objects.get(UniqueID=self.request.user.id,school_year=2,semester=2,regular_test="中間")
+                if grades.objects.filter(UniqueID=self.request.user.user_ID,school_year=2,semester=2,regular_test="中間").exists():
+                    grade_object=grades.objects.get(UniqueID=self.request.user.user_ID,school_year=2,semester=2,regular_test="中間")
+                else:
+                    grade_object=None
                 return grade_object
             elif(select==20202):
-                grade_object=grades.objects.get(UniqueID=self.request.user.id,school_year=2,semester=2,regular_test="期末")
+                if grades.objects.filter(UniqueID=self.request.user.user_ID,school_year=2,semester=2,regular_test="期末").exists():
+                    grade_object=grades.objects.get(UniqueID=self.request.user.user_ID,school_year=2,semester=2,regular_test="期末")
+                else:
+                    grade_object=None
                 return grade_object
             elif(select==20301):
-                grade_object=grades.objects.get(UniqueID=self.request.user.id,school_year=2,semester=3,regular_test="中間")
+                if grades.objects.filter(UniqueID=self.request.user.user_ID,school_year=2,semester=3,regular_test="中間").exists():
+                    grade_object=grades.objects.get(UniqueID=self.request.user.user_ID,school_year=2,semester=3,regular_test="中間")
+                else:
+                    grade_object=None
                 return grade_object
             elif(select==20302):
-                grade_object=grades.objects.get(UniqueID=self.request.user.id,school_year=2,semester=3,regular_test="期末")
+                if grades.objects.filter(UniqueID=self.request.user.user_ID,school_year=2,semester=3,regular_test="期末").exists():
+                    grade_object=grades.objects.get(UniqueID=self.request.user.user_ID,school_year=2,semester=3,regular_test="期末")
+                else:
+                    grade_object=None
                 return grade_object
             elif(select==30101):
-                grade_object=grades.objects.get(UniqueID=self.request.user.id,school_year=3,semester=1,regular_test="中間")
+                if grades.objects.filter(UniqueID=self.request.user.user_ID,school_year=3,semester=1,regular_test="中間").exists():
+                    grade_object=grades.objects.get(UniqueID=self.request.user.user_ID,school_year=3,semester=1,regular_test="中間")
+                else:
+                    grade_object=None
                 return grade_object
             elif(select==30102):
-                grade_object=grades.objects.get(UniqueID=self.request.user.id,school_year=3,semester=1,regular_test="期末")
+                if grades.objects.filter(UniqueID=self.request.user.user_ID,school_year=3,semester=1,regular_test="期末").exists():
+                    grade_object=grades.objects.get(UniqueID=self.request.user.user_ID,school_year=3,semester=1,regular_test="期末")
+                else:
+                    grade_object=None
                 return grade_object
             elif(select==30201):
-                grade_object=grades.objects.get(UniqueID=self.request.user.id,school_year=3,semester=2,regular_test="中間")
+                if grades.objects.filter(UniqueID=self.request.user.user_ID,school_year=3,semester=2,regular_test="中間").exists():
+                    grade_object=grades.objects.get(UniqueID=self.request.user.user_ID,school_year=3,semester=2,regular_test="中間")
+                else:
+                    grade_object=None
                 return grade_object
             elif(select==30202):
-                grade_object=grades.objects.get(UniqueID=self.request.user.id,school_year=3,semester=2,regular_test="期末")
+                if grades.objects.filter(UniqueID=self.request.user.user_ID,school_year=3,semester=2,regular_test="期末").exists():
+                    grade_object=grades.objects.get(UniqueID=self.request.user.user_ID,school_year=3,semester=2,regular_test="期末")
+                else:
+                    grade_object=None
                 return grade_object
             elif(select==30301):
-                grade_object=grades.objects.get(UniqueID=self.request.user.id,school_year=3,semester=3,regular_test="中間")
+                if grades.objects.filter(UniqueID=self.request.user.user_ID,school_year=3,semester=3,regular_test="中間").exists():
+                    grade_object=grades.objects.get(UniqueID=self.request.user.user_ID,school_year=3,semester=3,regular_test="中間")
+                else:
+                    grade_object=None
                 return grade_object
             elif(select==30302):
-                grade_object=grades.objects.get(UniqueID=self.request.user.id,school_year=3,semester=3,regular_test="期末")
+                if grades.objects.filter(UniqueID=self.request.user.user_ID,school_year=3,semester=3,regular_test="期末").exists():
+                    grade_object=grades.objects.get(UniqueID=self.request.user.user_ID,school_year=3,semester=3,regular_test="期末")
+                else:
+                    grade_object=None
                 return grade_object
-
-            """else:
-                grade_object=grades.objects.get(UniqueID=self.request.user.id,school_year=1,semester=1)
-                return grade_object"""
+            #else:
+            #    None
         grade=get_object(select)
-        response={
-            'national_language':grade.national_language,
-            'math':grade.math,
-            'english':grade.english,
-            'social_studies':grade.social_studies,
-            'science':grade.science,
-            'music':grade.music,
-            'art':grade.art,
-            'technical_arts_and_home_economics':grade.technical_arts_and_home_economics,
-            'health_and_physical_education':grade.health_and_physical_education,
-        }
-        response_json=json.dumps(response)
+        if grade==None:
+            response={
+                'grade_error_flag':'該当するデータはありません'
+            }
+            response_json=json.dumps(response)
+        else:
+            response={
+                'grade_error_flag':1,
+                'national_language':grade.national_language,
+                'math':grade.math,
+                'english':grade.english,
+                'social_studies':grade.social_studies,
+                'science':grade.science,
+                'music':grade.music,
+                'art':grade.art,
+                'technical_arts_and_home_economics':grade.technical_arts_and_home_economics,
+                'health_and_physical_education':grade.health_and_physical_education,
+            }
+            response_json=json.dumps(response)
         return HttpResponse(response_json)

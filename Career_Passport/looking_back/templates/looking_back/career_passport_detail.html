@@ -1,40 +1,128 @@
 {% extends 'looking_back/base.html' %}
 {% load static %}
-{% block extra_css %}
-<script src="{% static 'looking_back/js/chart.min.js' %}"></script>
-<script src="{% static 'looking_back/js/ajax.js' %}"></script>
-<script src="{% static 'looking_back/js/graph.js' %}"></script>
+{% block extra_css,js %}
+<link rel="stylesheet" href="{% static 'css/looking_back_css/looking_back_detail.css' %}">
+<script src="{% static 'js/chart.min.js' %}"></script>
+<script src="{% static 'js/ajax.js' %}"></script>
+<script src="{% static 'js/graph.js' %}"></script>
+<script src="{% static 'js/career_passport_view.js' %}"></script>
+<script src="{% static 'js/looking_back_js/looking_back_detail.js' %}"></script>
 {% endblock %}
 
 {% block content %}
-<h2>detail</h2>
-{% if "career_passport01_1" in request.path%}
-    {{object.date}}<br>
-    {{form.my_current.label}} : {{object.my_current}}<br>
-    {{form.my_PR.label}} : {{object.my_PR}}<br>
-    {{form.my_dream.label}} : {{object.my_dream}}<br>
-    {{form.getting_skills.label}} : {{object.getting_skills}}<br>
-    {{form.study_target.label}} : {{object.study_target}}<br>
-    {{form.for_study_target.label}} : {{object.for_study_target}}<br>
-    {{form.life_target.label}} : {{object.life_target}}<br>
-    {{form.for_life_target.label}} : {{object.for_life_target}}<br>
-    {{form.local_target.label}} : {{object.local_target}}<br>
-    {{form.for_local_target.label}} : {{object.for_local_target}}<br>
-    {{form.others_target.label}} : {{object.others_target}}<br>
-    {{form.for_others_target.label}} : {{object.for_others_target}}<br>
-{% endif %}
-    <div style="width:400px">
-        <canvas id="gradechart"></canvas>
-    </div>
-    <div id="grade_url" style="display: none;">
-        {% url 'grade_management:grade_output' pk=user.pk %}
-    </div>
-    <select id="grade_select">
-        {% for item in option_list %}
-            {{item |safe}}
-        {% endfor %}
-    </select>
-    <div id="error_text"></div>
+<svg class="n_272">
+    
+</svg>
+<svg class="n_15">
+	<ellipse id="n_15" rx="45" ry="45" cx="45" cy="45">
+	</ellipse>
+</svg>
+<div id="n_36">
+	<svg class="n_275">
+		<rect id="n_275" rx="0" ry="0" x="0" y="0" width="871" height="1769">
+		</rect>
+	</svg>
+	<svg class="n_276">
+		<rect id="n_276" rx="0" ry="0" x="0" y="0" width="871" height="86">
+		</rect>
+	</svg>
+</div>
+<div id="n_6__1" class="________6___1">
+	<div id="n_5__1" class="________5___1">
+		<svg class="n_291">
+			<rect id="n_291" rx="0" ry="0" x="0" y="0" width="124" height="40">
+			</rect>
+		</svg>
+	</div>
+	<div id="n_">
+		<span>1学期始め</span>
+	</div>
+</div>
+<div id="n_7__1" class="________7___1">
+	<div id="n_112">
+		<svg class="n_291_bx">
+			<rect id="n_291_bx" rx="0" ry="0" x="0" y="0" width="124" height="40">
+			</rect>
+		</svg>
+	</div>
+	<div id="n__by">
+		<span>1学期終わり</span>
+	</div>
+</div>
+<div id="n_8__1" class="________8___1">
+	<div id="n_113">
+		<svg class="n_291_b">
+			<rect id="n_291_b" rx="0" ry="0" x="0" y="0" width="124" height="40">
+			</rect>
+		</svg>
+	</div>
+	<div id="n__b">
+		<span>2学期始まり</span>
+	</div>
+</div>
+<div id="n_9__1" class="________9___1">
+	<svg class="n_291_ca">
+		<rect id="n_291_ca" rx="0" ry="0" x="0" y="0" width="124" height="40">
+		</rect>
+	</svg>
+	<div id="n__ca">
+		<span>2学期終わり</span>
+	</div>
+</div>
+<div id="n_10__1" class="________10___1">
+	<svg class="n_291_cb">
+		<rect id="n_291_cb" rx="0" ry="0" x="0" y="0" width="124" height="40">
+		</rect>
+	</svg>
+	<div id="n__cb">
+		<span>3学期始まり</span>
+	</div>
+</div>
+<div id="n_11__1" class="________11___1">
+	<svg class="n_291_cc">
+		<rect id="n_291_cc" rx="0" ry="0" x="0" y="0" width="124" height="40">
+		</rect>
+	</svg>
+	<div id="n__cc">
+		<span>3学期終わり</span>
+	</div>
+</div>
+<div id="n_54">
+	<div id='career_passport'></div>
+	<div id="teacher_comment"></div>
+	<div id="error_text_c"></div>
+	<div id="chart" style="width:400px">
+		<canvas id="gradechart"></canvas>
+	</div>
+	<select id="grade_select"></select>
+	<div id="error_text"></div>
+</div>
+<div id="n_1__1" class="________1___1">
+	<div id="n_32">
+		<svg class="n_274_c">
+			<rect id="n_274_c" rx="5" ry="5" x="0" y="0" width="163" height="61">
+			</rect>
+		</svg>
+		<div id="n__c">
+			<span>閲覧</span>
+		</div>
+	</div>
+	<svg class="n_283">
+		<rect id="n_283" rx="5" ry="5" x="0" y="0" width="163" height="40">
+		</rect>
+	</svg>
+	<div id="Text_da">
+		<span>振り返り</span>
+	</div>
+</div>
+<div id="career_passport_url" style="display: none;">
+    {% url 'looking_back:career_passport_output' pk=user.pk %}
+</div>
+
+<h3>grade_chart</h3>
+<div id="grade_url" style="display: none;">
+    {% url 'grade_management:grade_output' pk=user.pk %}
+</div>
 {% endblock content %}
 {% block extra_js %}
 {% endblock %}

@@ -15,11 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include('looking_back.urls')),
+    path('looking_back/',include('looking_back.urls')),
     path('grade/',include('grade_management.urls')),
-    path('accounts/',include('accounts.urls')),
+    path('',include('accounts.urls')),
     path('accounts/',include('django.contrib.auth.urls')),
+    path('teacher_confirmation/',include('teacher_confirmation.urls')),
+    path('file_uploader/',include('file_uploader.urls')),
 ]
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,0 +1,451 @@
+.mediaViewInfo {
+	--web-view-name: index;
+	--web-view-id: index;
+	--web-scale-on-resize: true;
+	--web-enable-deep-linking: true;
+}
+:root {
+	--web-view-ids: index;
+}
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	border: none;
+}
+@keyframes fadein {
+
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+
+}
+#n_273 {
+	fill: rgba(255,255,255,1);
+}
+.n_273 {
+	position: absolute;
+	overflow: visible;
+	width: 1024px;
+	height: 119px;
+	left: 0px;
+	top: 0px;
+}
+#Text {
+	left: 16px;
+	top: 41px;
+	position: absolute;
+	overflow: visible;
+	width: 241px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Noto Sans JP;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 40px;
+	color: rgba(112,112,112,1);
+}
+#n_11__ {
+	left: 75px;
+	top: 157px;
+	position: absolute;
+	overflow: visible;
+	width: 449px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Noto Sans JP;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 40px;
+	color: rgba(112,112,112,1);
+}
+#n_59 {
+	fill: transparent;
+	stroke: rgba(112,112,112,1);
+	stroke-width: 1px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.n_59 {
+	overflow: visible;
+	position: absolute;
+	width: 1px;
+	height: 119px;
+	left: 280.5px;
+	top: 0.5px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#n_59_ {
+	fill: transparent;
+	stroke: rgba(112,112,112,1);
+	stroke-width: 1px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.n_59_ {
+	overflow: visible;
+	position: absolute;
+	width: 1px;
+	height: 118px;
+	left: 382.5px;
+	top: 0.5px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#n_59_ba {
+	fill: transparent;
+	stroke: rgba(112,112,112,1);
+	stroke-width: 1px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.n_59_ba {
+	overflow: visible;
+	position: absolute;
+	width: 1px;
+	height: 118px;
+	left: 484.5px;
+	top: 0.5px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#n_59_bb {
+	fill: transparent;
+	stroke: rgba(112,112,112,1);
+	stroke-width: 1px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.n_59_bb {
+	overflow: visible;
+	position: absolute;
+	width: 1px;
+	height: 118px;
+	left: 586.5px;
+	top: 0.5px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#n_59_bc {
+	fill: transparent;
+	stroke: rgba(112,112,112,1);
+	stroke-width: 1px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.n_59_bc {
+	overflow: visible;
+	position: absolute;
+	width: 1px;
+	height: 118px;
+	left: 688.5px;
+	top: 0.5px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#n_11 {
+	position: absolute;
+	width: 92px;
+	height: 109px;
+	left: 286px;
+	top: 4px;
+	overflow: visible;
+	--web-animation: fadein 0.3s ease-out;
+	--web-action-type: page;
+	--web-action-target: pass.html;
+	cursor: pointer;
+}
+#pencil-shirokuro-400x400 {
+	position: absolute;
+	width: 81px;
+	height: 80px;
+	left: 5px;
+	top: 0px;
+	overflow: visible;
+}
+#Text_ {
+	left: 0px;
+	top: 86px;
+	position: absolute;
+	overflow: visible;
+	width: 93px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Noto Sans JP;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 23px;
+	color: rgba(112,112,112,1);
+}
+#n_12 {
+	position: absolute;
+	width: 92px;
+	height: 109px;
+	left: 388px;
+	top: 4px;
+	overflow: visible;
+	--web-animation: fadein 0.3s ease-out;
+	--web-action-type: page;
+	--web-action-target: iPad_Nexus_9___11.html;
+	cursor: pointer;
+}
+#n_346568-200_ue2x {
+	position: absolute;
+	width: 81px;
+	height: 80px;
+	left: 5px;
+	top: 0px;
+	overflow: visible;
+}
+#Text_bc {
+	left: 0px;
+	top: 86px;
+	position: absolute;
+	overflow: visible;
+	width: 93px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Noto Sans JP;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 23px;
+	color: rgba(112,112,112,1);
+}
+#n_13 {
+	position: absolute;
+	width: 81px;
+	height: 109px;
+	left: 495px;
+	top: 4px;
+	overflow: visible;
+	transition: all 0.3s ease-out;
+	--web-animation: fadein 0.3s ease-out;
+	--web-action-type: page;
+	--web-action-target: iPad_Nexus_9___17.html;
+	cursor: pointer;
+}
+#n_58291 {
+	position: absolute;
+	width: 81px;
+	height: 80px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#Text_bf {
+	left: 18px;
+	top: 86px;
+	position: absolute;
+	overflow: visible;
+	width: 47px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Noto Sans JP;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 23px;
+	color: rgba(112,112,112,1);
+}
+#n_14 {
+	position: absolute;
+	width: 81px;
+	height: 109px;
+	left: 597px;
+	top: 4px;
+	overflow: visible;
+}
+#n_49669_qw {
+	position: absolute;
+	width: 81px;
+	height: 80px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#Text_bi {
+	left: 18px;
+	top: 86px;
+	position: absolute;
+	overflow: visible;
+	width: 47px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Noto Sans JP;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 23px;
+	color: rgba(112,112,112,1);
+}
+#n_15 {
+	position: absolute;
+	width: 163px;
+	height: 61px;
+	left: 707px;
+	top: 29px;
+	overflow: visible;
+}
+#n_274 {
+	fill: rgba(255,255,255,1);
+	stroke: rgba(112,112,112,1);
+	stroke-width: 1px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.n_274 {
+	position: absolute;
+	overflow: visible;
+	width: 163px;
+	height: 61px;
+	left: 0px;
+	top: 0px;
+}
+#n_021_ {
+	left: 18px;
+	top: 23px;
+	position: absolute;
+	overflow: visible;
+	width: 129px;
+	white-space: nowrap;
+	line-height: 50px;
+	margin-top: -12.5px;
+	text-align: center;
+	font-family: Noto Sans JP;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 25px;
+	color: rgba(112,112,112,1);
+	outline:none;
+}
+#n_4__1 {
+	position: absolute;
+	width: 90px;
+	height: 90px;
+	left: 904px;
+	top: 14px;
+	overflow: visible;
+	z-index:10;
+}
+#n_14_cq {
+	fill: rgba(214,214,214,1);
+}
+.n_14_cq {
+	position: absolute;
+	overflow: visible;
+	width: 90px;
+	height: 90px;
+	left: 0px;
+	top: 0px;
+}
+#n_289 {
+	fill: rgba(255,255,255,1);
+	stroke: rgba(112,112,112,1);
+	stroke-width: 1px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.n_289 {
+	display: none;
+	position: absolute;
+	overflow: visible;
+	width: 437px;
+	height: 357px;
+	left: -335px;
+	top: 112px;
+}
+#n_290 {
+	fill: transparent;
+	stroke: rgba(112,112,112,1);
+	stroke-width: 1px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.n_290 {
+	display: none;
+	position: absolute;
+	overflow: visible;
+	width: 235px;
+	height: 59px;
+	left: -234px;
+	top: 377px;
+}
+#n__1_1 {
+	display: none;
+	left: -275px;
+	top: 235px;
+	position: absolute;
+	overflow: visible;
+	width: 318px;
+	height: 33px;
+	text-align: center;
+	font-family: Noto Sans JP;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 30px;
+	color: rgba(112,112,112,1);
+}
+#n__cu {
+	display: none;
+	left: -275px;
+	top: 299px;
+	position: absolute;
+	overflow: visible;
+	width: 318px;
+	height: 44px;
+	text-align: center;
+	font-family: Noto Sans JP;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 40px;
+	color: rgba(112,112,112,1);
+}
+#Text_cv {
+	display: none;
+	left: -275px;
+	top: 377px;
+	position: absolute;
+	overflow: visible;
+	width: 318px;
+	height: 40px;
+	text-align: center;
+	font-family: Noto Sans JP;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 40px;
+	color: rgba(112,112,112,1);
+}
+a#cv_Text{
+	text-decoration: none;
+}
+#n_16_cw {
+	fill: rgba(220,221,221,1);
+	stroke: rgba(112,112,112,1);
+	stroke-width: 1px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.n_16_cw {
+	display: none;
+	position: absolute;
+	overflow: visible;
+	width: 91px;
+	height: 91px;
+	left: -162px;
+	top: 124px;
+}

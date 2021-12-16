@@ -1,0 +1,27 @@
+{% extends 'teacher_confirmation/base.html' %}
+{% load static %}
+{% block extra_css,js %}
+<link rel="stylesheet" href="{% static 'css/teacher_confirmation_css/teacher_confirmation_list.css' %}">
+<script src="{% static 'js/teacher_confirmation_js/teacher_confirmation_list.js' %}"></script>
+{% endblock %}
+{% block content %}
+<svg class="n_272">
+    
+</svg>
+<div id="n_36">
+    <svg class="n_275">
+		<rect id="n_275" rx="0" ry="0" x="0" y="0" width="871" height="1769">
+		</rect>
+	</svg>
+	<svg class="n_276">
+		<rect id="n_276" rx="0" ry="0" x="0" y="0" width="871" height="86">
+		</rect>
+	</svg>
+</div>
+<div id="n_54">
+    {% for item in student_list %}
+    <a id="student_list" href="/teacher_confirmation/career_passport_confirm/{{user.user_ID}}/{{item.user_ID}}">ID:{{item.user_ID}}//name:{{item.name}}</a>
+    <br>
+    {% endfor %}
+</div>
+{% endblock content %}

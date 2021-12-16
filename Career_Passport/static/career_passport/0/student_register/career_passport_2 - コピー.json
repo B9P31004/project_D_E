@@ -1,0 +1,17 @@
+﻿{
+    "student_career_passport_1": {
+        "semester_2": {
+            "question": [
+                "将来の夢は？",
+                "振り返り",
+                "これから"
+            ],
+            "result": [
+                "先生",
+                "中間は頑張れた",
+                "楽しむ"
+            ],
+            "comment": "頑張って"
+        }
+    }
+}

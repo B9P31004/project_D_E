@@ -1,13 +1,1 @@
-/Scripts/activate
-/Scripts/activate.bat
-/Scripts/activate.ps1
-/Scripts/deactivate.bat
-/Scripts/pip.exe
-/Scripts/pip3.8.exe
-/Scripts/pip3.exe
-/Scripts/python.exe
-/Scripts/pythonw.exe
-pyvenv.cfg
-/Career_Passport/Career_Passport/.env
-__pycache__/
-migrations/
+__pycache__

@@ -1,0 +1,656 @@
+#index {
+	position: absolute;
+	width: 1024px;
+	height: 1430px;
+	background-color: rgba(255,255,255,1);
+	overflow: hidden;
+	--web-view-name: index;
+	--web-view-id: index;
+	--web-scale-on-resize: true;
+	--web-enable-deep-linking: true;
+	z-index: 10;
+}
+#n_272 {
+	fill: rgba(245,245,245,1);
+}
+.n_272 {
+	position: absolute;
+	overflow: visible;
+	width: 1024px;
+	height: 1430px;
+	left: 0px;
+	top: 0px;
+	z-index: -1;
+}
+#n_16 {
+	position: absolute;
+	width: 872px;
+	height: 284.5px;
+	left: 76.5px;
+	top: 230px;
+	overflow: visible;
+}
+#n_275 {
+	fill: rgba(255,255,255,1);
+}
+.n_275 {
+	position: absolute;
+	overflow: visible;
+	width: 871px;
+	height: 284px;
+	left: 0.5px;
+	top: 0px;
+}
+#n_276 {
+	fill: rgba(44,195,242,1);
+}
+.n_276 {
+	position: absolute;
+	overflow: visible;
+	width: 871px;
+	height: 86px;
+	left: 0.5px;
+	top: 0px;
+}
+#Text_bp {
+	left: 26.5px;
+	top: 23px;
+	position: absolute;
+	overflow: visible;
+	width: 493px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Noto Sans JP;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 45px;
+	color: rgba(255,255,255,1);
+}
+#n_60 {
+	fill: transparent;
+	stroke: rgba(112,112,112,1);
+	stroke-width: 1px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.n_60 {
+	overflow: visible;
+	position: absolute;
+	width: 872px;
+	height: 1px;
+	left: 0px;
+	top: 185.5px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#Text_br {
+	left: 25.5px;
+	top: 119px;
+	position: absolute;
+	overflow: visible;
+	width: 141px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Noto Sans JP;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 35px;
+	color: rgba(112,112,112,1);
+}
+#Text_bs {
+	left: 7.5px;
+	top: 217px;
+	position: absolute;
+	overflow: visible;
+	width: 176px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Noto Sans JP;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 35px;
+	color: rgba(112,112,112,1);
+}
+#n_61 {
+	fill: transparent;
+	stroke: rgba(112,112,112,1);
+	stroke-width: 1px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.n_61 {
+	overflow: visible;
+	position: absolute;
+	width: 1px;
+	height: 198px;
+	left: 189px;
+	top: 86.5px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#n_ {
+	left: 247.5px;
+	top: 120px;
+	position: absolute;
+	overflow: visible;
+	width: 93px;
+	white-space: nowrap;
+	--web-animation: fadein 0.3s ease-out;
+	--web-action-type: page;
+	--web-action-target: pass.html;
+	cursor: pointer;
+	text-align: center;
+	font-family: Noto Sans JP;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 30px;
+	color: rgba(112,112,112,1);
+}
+#n__bv {
+	left: 247.5px;
+	top: 218px;
+	position: absolute;
+	overflow: visible;
+	width: 93px;
+	white-space: nowrap;
+	--web-animation: fadein 0.3s ease-out;
+	--web-action-type: page;
+	--web-action-target: iPad_Nexus_9___5.html;
+	cursor: pointer;
+	text-align: center;
+	font-family: Noto Sans JP;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 30px;
+	color: rgba(112,112,112,1);
+}
+#n__bw {
+	left: 452.5px;
+	top: 120px;
+	position: absolute;
+	overflow: visible;
+	width: 93px;
+	white-space: nowrap;
+	--web-animation: fadein 0.3s ease-out;
+	--web-action-type: page;
+	--web-action-target: iPad_Nexus_9___6.html;
+	cursor: pointer;
+	text-align: center;
+	font-family: Noto Sans JP;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 30px;
+	color: rgba(112,112,112,1);
+}
+#n__bx {
+	left: 452.5px;
+	top: 218px;
+	position: absolute;
+	overflow: visible;
+	width: 93px;
+	white-space: nowrap;
+	--web-animation: fadein 0.3s ease-out;
+	--web-action-type: page;
+	--web-action-target: iPad_Nexus_9___7.html;
+	cursor: pointer;
+	text-align: center;
+	font-family: Noto Sans JP;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 30px;
+	color: rgba(112,112,112,1);
+}
+#n__by {
+	left: 658.5px;
+	top: 120px;
+	position: absolute;
+	overflow: visible;
+	width: 93px;
+	white-space: nowrap;
+	--web-animation: fadein 0.3s ease-out;
+	--web-action-type: page;
+	--web-action-target: iPad_Nexus_9___8.html;
+	cursor: pointer;
+	text-align: center;
+	font-family: Noto Sans JP;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 30px;
+	color: rgba(112,112,112,1);
+}
+#n__bz {
+	left: 658.5px;
+	top: 218px;
+	position: absolute;
+	overflow: visible;
+	width: 93px;
+	white-space: nowrap;
+	--web-animation: fadein 0.3s ease-out;
+	--web-action-type: page;
+	--web-action-target: iPad_Nexus_9___9.html;
+	cursor: pointer;
+	text-align: center;
+	font-family: Noto Sans JP;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 30px;
+	color: rgba(112,112,112,1);
+}
+a#link_semester_w{
+	text-decoration: none;
+}
+#n_275_b {
+	fill: rgba(255,255,255,1);
+}
+.n_275_b {
+	position: absolute;
+	overflow: visible;
+	width: 871px;
+	height: 284px;
+	left: 77px;
+	top: 575px;
+}
+#n_276_b {
+	fill: rgba(44,195,242,1);
+}
+.n_276_b {
+	position: absolute;
+	overflow: visible;
+	width: 871px;
+	height: 86px;
+	left: 77px;
+	top: 575px;
+}
+#Text_b {
+	left: 102px;
+	top: 598px;
+	position: absolute;
+	overflow: visible;
+	width: 631px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Noto Sans JP;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 45px;
+	color: rgba(255,255,255,1);
+}
+#n_60_b {
+	fill: transparent;
+	stroke: rgba(112,112,112,1);
+	stroke-width: 1px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.n_60_b {
+	overflow: visible;
+	position: absolute;
+	width: 872px;
+	height: 1px;
+	left: 76.5px;
+	top: 760.5px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#Text_ca {
+	left: 102px;
+	top: 694px;
+	position: absolute;
+	overflow: visible;
+	width: 141px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Noto Sans JP;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 35px;
+	color: rgba(112,112,112,1);
+}
+#Text_cb {
+	left: 84px;
+	top: 792px;
+	position: absolute;
+	overflow: visible;
+	width: 176px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Noto Sans JP;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 35px;
+	color: rgba(112,112,112,1);
+}
+#n_61_b {
+	fill: transparent;
+	stroke: rgba(112,112,112,1);
+	stroke-width: 1px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.n_61_b {
+	overflow: visible;
+	position: absolute;
+	width: 1px;
+	height: 198px;
+	left: 265.5px;
+	top: 661.5px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#n__b {
+	left: 324px;
+	top: 695px;
+	position: absolute;
+	overflow: visible;
+	width: 93px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Noto Sans JP;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 30px;
+	color: rgba(112,112,112,1);
+}
+#n__ca {
+	left: 324px;
+	top: 793px;
+	position: absolute;
+	overflow: visible;
+	width: 93px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Noto Sans JP;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 30px;
+	color: rgba(112,112,112,1);
+}
+#n__cb {
+	left: 529px;
+	top: 695px;
+	position: absolute;
+	overflow: visible;
+	width: 93px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Noto Sans JP;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 30px;
+	color: rgba(112,112,112,1);
+}
+#n__cc {
+	left: 529px;
+	top: 793px;
+	position: absolute;
+	overflow: visible;
+	width: 93px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Noto Sans JP;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 30px;
+	color: rgba(112,112,112,1);
+}
+#n__cd {
+	left: 735px;
+	top: 695px;
+	position: absolute;
+	overflow: visible;
+	width: 93px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Noto Sans JP;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 30px;
+	color: rgba(112,112,112,1);
+}
+#n__ce {
+	left: 735px;
+	top: 793px;
+	position: absolute;
+	overflow: visible;
+	width: 93px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Noto Sans JP;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 30px;
+	color: rgba(112,112,112,1);
+}
+#n_227 {
+	position: absolute;
+	width: 871px;
+	height: 185.5px;
+	left: 77px;
+	top: 520px;
+	overflow: visible;
+}
+#n_16_ce {
+	position: absolute;
+	width: 871px;
+	height: 185.5px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#n_275_cf {
+	fill: rgba(255,255,255,1);
+}
+.n_275_cf {
+	position: absolute;
+	overflow: visible;
+	width: 871px;
+	height: 185px;
+	left: 0px;
+	top: 0px;
+}
+#n_276_cg {
+	fill: rgba(44,195,242,1);
+}
+.n_276_cg {
+	position: absolute;
+	overflow: visible;
+	width: 871px;
+	height: 86px;
+	left: 0px;
+	top: 0px;
+}
+#Text_ch {
+	left: 25px;
+	top: 23px;
+	position: absolute;
+	overflow: visible;
+	width: 91px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Noto Sans JP;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 45px;
+	color: rgba(255,255,255,1);
+}
+#n_61_ci {
+	fill: transparent;
+	stroke: rgba(112,112,112,1);
+	stroke-width: 1px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.n_61_ci {
+	overflow: visible;
+	position: absolute;
+	width: 1px;
+	height: 99px;
+	left: 188.5px;
+	top: 86.5px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#n_17 {
+	position: absolute;
+	width: 871px;
+	height: 185.5px;
+	left: 77px;
+	top: 1166px;
+	overflow: visible;
+}
+#n_1 {
+	fill: rgba(255,255,255,1);
+}
+.n_1 {
+	overflow: visible;
+	position: absolute;
+	width: 871px;
+	height: 185.5px;
+	left: 0px;
+	top: 0px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#n_276_cl {
+	fill: rgba(44,195,242,1);
+}
+.n_276_cl {
+	position: absolute;
+	overflow: visible;
+	width: 871px;
+	height: 86px;
+	left: 0px;
+	top: 0px;
+}
+#Text_cm {
+	left: 25px;
+	top: 23px;
+	position: absolute;
+	overflow: visible;
+	width: 181px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Noto Sans JP;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 45px;
+	color: rgba(255,255,255,1);
+}
+#Text_cn {
+	left: 141px;
+	top: 117px;
+	position: absolute;
+	overflow: visible;
+	width: 159px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Noto Sans JP;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 35px;
+	color: rgba(112,112,112,1);
+}
+#Text_co {
+	left: 461px;
+	top: 117px;
+	position: absolute;
+	overflow: visible;
+	width: 299px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Noto Sans JP;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 35px;
+	color: rgba(112,112,112,1);
+}
+#n__cx {
+	left: 324px;
+	top: 637px;
+	position: absolute;
+	overflow: visible;
+	width: 93px;
+	white-space: nowrap;
+	transition: all 0.3s ease-out;
+	--web-animation: fadein 0.3s ease-out;
+	--web-action-type: page;
+	--web-action-target: iPad_Nexus_9___17.html;
+	cursor: pointer;
+	text-align: center;
+	font-family: Noto Sans JP;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 30px;
+	color: rgba(112,112,112,1);
+}
+#n__cy {
+	left: 529px;
+	top: 637px;
+	position: absolute;
+	overflow: visible;
+	width: 93px;
+	white-space: nowrap;
+	transition: all 0.3s ease-out;
+	--web-animation: fadein 0.3s ease-out;
+	--web-action-type: page;
+	--web-action-target: iPad_Nexus_9___18.html;
+	cursor: pointer;
+	text-align: center;
+	font-family: Noto Sans JP;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 30px;
+	color: rgba(112,112,112,1);
+}
+#n__cz {
+	left: 735px;
+	top: 637px;
+	position: absolute;
+	overflow: visible;
+	width: 93px;
+	white-space: nowrap;
+	transition: all 0.3s ease-out;
+	--web-animation: fadein 0.3s ease-out;
+	--web-action-type: page;
+	--web-action-target: iPad_Nexus_9___19.html;
+	cursor: pointer;
+	text-align: center;
+	font-family: Noto Sans JP;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 30px;
+	color: rgba(112,112,112,1);
+}
+#Text_c {
+	left: 137px;
+	top: 638px;
+	position: absolute;
+	overflow: visible;
+	width: 71px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Noto Sans JP;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 35px;
+	color: rgba(112,112,112,1);
+}
+div#file_upload{
+	left: 130px;
+	top: 750px;
+	position: absolute;
+	overflow: visible;
+	width: 93px;
+	white-space: nowrap;
+	cursor: pointer;
+	text-align: center;
+	font-family: Noto Sans JP;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 30px;
+	color: rgba(112,112,112,1);
+}

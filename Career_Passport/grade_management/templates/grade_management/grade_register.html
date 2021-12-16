@@ -2,9 +2,16 @@
 {% block content %}
 <h2>index</h2>
 <form method="POST">
-    {% csrf_token %}
-    {{form}}
-    <button type="submit" name="button_input">送信</button>
-    {{text}}
+    <div style="padding-left:50px;">
+        {% csrf_token %}
+        {% for item in form %}
+            {{item.label}}
+            <br>
+            {{item}}
+            <br>
+        {% endfor %}
+        <button type="submit" name="button_input">送信</button>
+        {{text}}
+    </div>
 </form>
 {% endblock content %}

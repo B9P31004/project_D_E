@@ -1,18 +1,61 @@
-<!DOCTYPE html>
-<html>
- 
-<head>
-    <meta charset="utf-8" />
-    <title>ログインフォーム画面</title>
-</head>
- 
-<body>
-    <h1>ログインフォーム画面</h1>
-    <form method="post">
+{% extends 'registration/base.html' %}
+{% load static %}
+{% block content %}
+<div id="login">
+    <svg class="n_265">
+		<rect id="n_265" rx="0" ry="0" x="0" y="0" width="1024" height="768">
+		</rect>
+	</svg>
+	<svg class="n_266">
+		<rect id="n_266" rx="0" ry="0" x="0" y="0" width="842" height="474">
+		</rect>
+	</svg>
+	<svg class="n_267">
+		<rect id="n_267" rx="27" ry="27" x="0" y="0" width="798" height="198">
+		</rect>
+	</svg>
+	<svg class="n_58" viewBox="0 0 798.322 1">
+		<path id="n_58" d="M 0 0 L 798.322021484375 0">
+		</path>
+	</svg>
+    <div id="Text_bd">
+		<span>キャリアパスポート</span>
+	</div>
+    <form method="post" id="login">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">ログイン</button>
+        {% for item in form %}
+            {% if forloop.first %}
+            <div id="ID">
+                {{item.label_tag}}
+            </div>
+            <div id="n_42__1" class="________42___1">
+                {{item}}
+            </div>
+            {% else %}
+            <div id="Text">
+                {{item.label_tag}}
+            </div>
+            <div id="n_44__1" class="________44___1">
+                {{item}}
+            </div>
+            {% endif %}
+        {% endfor %}
+        <div id="n_20">
+            <svg class="n_270">
+                <rect id="n_270" rx="35" ry="35" x="0" y="0" width="212" height="70">
+                </rect>
+            </svg>
+            <button id="Text_" type="submit">ログイン</button>
+        </div>
     </form>
-</body>
- 
-</html>
+    <div id="n_ID">
+    {% if form.errors %}
+        <p id="error_text">※ユーザIDもしくはパスワードが正しくありません。</p>
+    {% endif %}
+        <p id="error_text2" style="display:none;">※ユーザIDは半角英数字で入力してください。</p>
+    </div>
+</div>
+{% endblock content %}
+{% block extra_js %}
+    <script src="{% static 'js/login_js/login.js' %}"></script>
+{% endblock %}
