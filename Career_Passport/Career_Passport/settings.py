@@ -48,6 +48,8 @@ INSTALLED_APPS = [
     'grade_management.apps.GradeManagementConfig',
     'teacher_confirmation.apps.TeacherConfirmationConfig',
     'file_uploader.apps.FileUploaderConfig',
+
+    'django_ses',
 ]
 
 MIDDLEWARE = [
@@ -136,6 +138,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = '/usr/share/nginx/html/static'
 STATICFILES_DIRS=(
     os.path.join(BASE_DIR,"static"),
 )
@@ -150,5 +153,8 @@ AUTH_USER_MODEL='accounts.CustomUser'
 LOGIN_REDIRECT_URL='accounts:index'
 ACCOUNT_LOGOUT_REDIRECT_URL='accounts:login'
 
-MEDIA_ROOT=os.path.join(BASE_DIR,'media')
+MEDIA_ROOT='/usr/share/nginx/html/static'
 MEDIA_URL='/media/'
+
+AWS_SES_ACCESS_KEY_ID=os.environ.get('AWS_SES_ACCESS_KEY_ID')
+AWS_SES_SECRET_ACCESS_KEY=os.environ.get('AWS_SES_SECRET_ACCESS_KEY')
